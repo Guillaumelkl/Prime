@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 
-require("./Datatbase/connection")
+require("./Database/connection")
 const port = 8080;
 const app = express();
 
