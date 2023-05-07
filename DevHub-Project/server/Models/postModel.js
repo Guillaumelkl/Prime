@@ -13,6 +13,6 @@ const postSchema = new mongoose.Schema({
 
 });
 
-const postModel = mongoose.model('projectPostModel', postSchema);
+const Post = mongoose.model('post', postSchema);
 
-module.exports = postModel;
+module.exports = Post;

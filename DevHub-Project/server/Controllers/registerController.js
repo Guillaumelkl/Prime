@@ -7,6 +7,7 @@ const UserRegistry = (req,res) => {
     try {
         bcrypt.hash(req.body.password, SALT_ROUNDS).then((hashedPassword) => {
             const user = new User({
+                userName: req.body.username,
                 email: req.body.email,
                 password: hashedPassword,
             })

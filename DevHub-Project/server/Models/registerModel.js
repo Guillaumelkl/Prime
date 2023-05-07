@@ -9,6 +9,12 @@ const registerUserSchema = new mongoose.Schema({
         type: String,
         required: true
       },
+
+      userName: {
+        type: String,
+       unique: [true, "Username Exist"],
+      },
+
       email: {
         type: String,
         required: [true, "Please provide an Email!"],
