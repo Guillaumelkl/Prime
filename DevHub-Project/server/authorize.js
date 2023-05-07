@@ -7,7 +7,7 @@ const verifyToken = async (req,res,next) =>{
         if(!req.headers.authorization){
             return res.status(401).send({msg:'cannot get token'});
         }
-        const token = await req.headers.authorization.split(' ')[1];
+        const token = await req.headers.authorization.split("")[1];
         if(!token){
             res.status(401).send({msg:"token invalid"});
         }
@@ -17,7 +17,7 @@ const verifyToken = async (req,res,next) =>{
             return res.send({msg:'cannot verify the token'});
         }
 
-        req.user = validation;
+        req.user = validToken;
         next();
         
     } catch (error) {

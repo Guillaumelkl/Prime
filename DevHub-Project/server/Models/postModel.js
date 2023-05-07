@@ -7,7 +7,7 @@ const postSchema = new mongoose.Schema({
     post: {
         type: String,
       },
-    tags: {
+    tag: {
         type: String
     }
 
