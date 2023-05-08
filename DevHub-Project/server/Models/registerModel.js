@@ -19,7 +19,7 @@ const registerUserSchema = new mongoose.Schema({
         type: String,
         required: [true, "Please provide an Email!"],
         unique: [true, "Email Exist"],
-        match: /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/
+      
       },
       password: {
         type: String,

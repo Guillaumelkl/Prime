@@ -1,11 +1,11 @@
 const User = require('../Models/registerModel');
 const bcrypt = require('bcrypt');
 require('dotenv').config();
-const SALT_ROUNDS = 10;
+const SALT = +process.env.SALT_ROUNDS;
 
 const UserRegistry = (req,res) => {
     try {
-        bcrypt.hash(req.body.password, SALT_ROUNDS).then((hashedPassword) => {
+        bcrypt.hash(req.body.password, SALT).then((hashedPassword) => {
             const user = new User({
                 firstName: req.body.firstName,
                 lastName: req.body.lastName,

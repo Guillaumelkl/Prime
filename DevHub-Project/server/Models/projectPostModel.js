@@ -9,7 +9,7 @@ const postProjectSchema = new mongoose.Schema({
         type: String,
       },
       
-      Summary: {
+      summary: {
         type: String,
         
       },

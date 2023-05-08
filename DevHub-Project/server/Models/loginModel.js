@@ -5,7 +5,7 @@ const loginUserSchema = new mongoose.Schema({
         type: String,
         required: [true, "Please provide an Email!"],
         unique: [true, "Email Exist"],
-        match: /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/
+      
       },
       
       userName: {
@@ -21,6 +21,6 @@ const loginUserSchema = new mongoose.Schema({
       },
 });
 
-const UserLogin = mongoose.model('userLogin', loginUserSchema);
+const UserLogin = mongoose.model('users', loginUserSchema);
 
 module.exports = UserLogin;

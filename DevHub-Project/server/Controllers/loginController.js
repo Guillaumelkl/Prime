@@ -1,28 +1,27 @@
-const UserLogin = require('../Models/loginModel');
+const User = require('../Models/loginModel');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-require('dotenv').config();
-const PRIVATE = process.env.PRIVATE;
+
+const PRIVATE_KEY = process.env.PRIVATE;
+require("dotenv").config();
 
 const userLogin =  async (req,res) => {
     try {
-        const { email_Or_Username, password} = req.body;
+        const { email,userName, password} = req.body;
         
-        const user = await UserLogin.findOne({
-            $or: [{ email:email_Or_Username }, { userName:email_Or_Username }],
-          });
+        const user = email ? await User.findOne({ email }) : await User.findOne({ userName });
 
         if(!user) {
-            return res.status(401).send({msg:'cannot verify email or username'});     
-        };
+            return res.status(401).send({msg:"cannot verify email or username"});     
+        }
 
         const validPassword = await bcrypt.compare(password, user.password);
 
         if(!validPassword){
             return res.status(401).send({msg: 'password not valid'});
-        };
+        }
 
-        const token = jwt.sign({id: user._id}, PRIVATE);
+        const token = jwt.sign({id: user._id}, PRIVATE_KEY);
         res.status(200).send({token});
 
         

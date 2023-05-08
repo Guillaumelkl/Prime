@@ -10,10 +10,10 @@ const postProject =  async (req,res) => {
             technology,
             summary
         });
-        res.send("project has been saved successfully.")
+        res.status(202).send("project has been saved successfully.")
         
     } catch (error) {
-        res.status(500).send("cannot post project");
+        res.status(500).send({msg:"cannot post project"});
         throw error;
         
     }
@@ -26,8 +26,8 @@ const getProjects = async (req, res) => {
         res.send(projects);
         
     } catch (error) {
-        res.status(500).send('unable to egt projects');
-        
+        res.status(500).send({msg:'unable to get projects', error});
+          
     }
 }
 
@@ -38,7 +38,7 @@ const deleteProject =  async(req, res)=> {
         res.status(204).send({msg: `${project.title} deleted`, toDelete});
         
     } catch (error) {
-        res.status(500).send({msg:`unable to delete ${project}`,error});
+        res.status(500).send({msg:"unable to delete project",error});
         
     }
 }
