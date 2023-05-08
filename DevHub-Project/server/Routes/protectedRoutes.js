@@ -19,7 +19,7 @@ router.delete("/deletePost", authorize, deleteProject)
 
 router.post("/myPost", authorize, myPost );
 router.put("/updatePost", authorize, updatePost );
-router.delete("/deletePost", authorize, deletePost);
+router.delete("/deletePost", authorize, deletePost)
 
 
 
