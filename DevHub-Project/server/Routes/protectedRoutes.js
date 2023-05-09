@@ -12,9 +12,9 @@ const {myPost,
        deletePost
 } = require("../Controllers/postCommentController")
 
-router.post("/postProject", authorize, postProject );
-router.post("/getProject", authorize, getProjects)
-router.delete("/deletePost", authorize, deleteProject)
+router.post("/postProject",authorize, postProject );
+router.post("/getProjects", getProjects)
+router.delete("/deleteProject", deleteProject)
 
 
 router.post("/myPost", authorize, myPost );

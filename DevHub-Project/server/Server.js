@@ -1,6 +1,6 @@
 const express = require('express');
 const cors = require('cors');
-const unprotectedRoutes =require('./Routes/freeRoutes')
+const unprotectedRoutes =require('./Routes/openRoutes')
 const protectedRoutes = require("./Routes/protectedRoutes");
 
 require("./Database/connection")
