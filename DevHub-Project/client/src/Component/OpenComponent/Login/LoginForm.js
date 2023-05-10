@@ -1,9 +1,10 @@
 import { useForm} from "react-hook-form";
 import DataLogin from './LoginData'
-import { useNavigation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function LoginForm(props) {
    const {register, handleSubmit, reset, formState: {errors}} = useForm();
+   const navigate = useNavigate();
    
 
    const onSubmit = async (data) =>{
@@ -15,7 +16,7 @@ function LoginForm(props) {
     const result = await DataLogin(data);
     if (result){
       props.onLogin(true)
-      
+      navigate("/home");
     }
    }
 

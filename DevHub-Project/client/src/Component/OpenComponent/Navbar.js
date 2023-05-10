@@ -24,11 +24,11 @@ function Navbar() {
         <nav className="navbar" class="navbar navbar-dark bg-dark" >
             <ul  class="nav nav-pills">
             <Link to="/" className="main" class="navbar-brand">DevHub</Link>
-            
+            <Link to='/register' class="btn btn-outline-success my-3 my-sm-0">Register</Link>
+            <Link to='/login' class="btn btn-outline-success my-3 my-sm-0">Login</Link>
             </ul>
             <ul>
-            <Link to='/register' class="nav-link">Register</Link>
-            <Link to='/login' class="nav-link">Login</Link>
+            
             </ul>
           
         </nav>
