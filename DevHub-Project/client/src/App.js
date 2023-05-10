@@ -23,7 +23,7 @@ function App() {
         <div className='container'>
           <Routes>
             <Route path='/' element={<LandingPage />} />
-            <Route path='/homePage' element={<Home />} />
+            <Route path='/home' element={<Home />} />
             <Route path='/register' element={<RegistrationForm />} />
             <Route path='/login' element={<LoginForm onLogin = {handleUserState} />} />
             <Route path='/project' element={<Projects />} />

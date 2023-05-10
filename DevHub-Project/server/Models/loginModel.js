@@ -7,11 +7,6 @@ const loginUserSchema = new mongoose.Schema({
         unique: [true, "Email Exist"],
       
       },
-      
-      userName: {
-        type: String,
-       unique: [true, "Username Exist"],
-      },
 
       password: {
         type: String,

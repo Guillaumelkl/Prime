@@ -8,12 +8,12 @@ function LoginForm(props) {
 
    const onSubmit = async (data) =>{
     reset({
-      emailOrUsername: "",
+      email: "",
       password: "",
     });
 
-    const response = await DataLogin(data);
-    if (response){
+    const result = await DataLogin(data);
+    if (result){
       props.onLogin(true)
       
     }
@@ -23,18 +23,22 @@ function LoginForm(props) {
     <div>
       <form onSubmit={handleSubmit(onSubmit)}>
      <div className='form' class="form-group">
-    <label for="exampleInputEmail1">Email or Username</label>
-    <input type="string" class="form-control" 
+    <label >Email</label>
+    <input type="email" class="form-control" 
     id="exampleInputEmail1" 
     aria-describedby="emailHelp" 
-    placeholder="Enter email or password"
+    placeholder="Enter email"
     name='email'
+    {...register("email", {
+      required: "Email is required.",
+    })}
     />
+    {errors.email && <p className='errorMsg'>{errors.email.message}</p>}
     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
   </div>
   <br/>
   <div className='form' class="form-group">
-    <label for="exampleInputPassword1">Password</label>
+    <label>Password</label>
     <input type="password" 
     class="form-control" 
     id="exampleInputPassword1" 

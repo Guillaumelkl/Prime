@@ -7,12 +7,11 @@ require("dotenv").config();
 
 const userLogin =  async (req,res) => {
     try {
-        const { email,userName, password} = req.body;
+        const { email, password} = req.body;
         
-        const user = email ? await User.findOne({ email }) : await User.findOne({ userName });
-
-        if(!user) {
-            return res.status(401).send({msg:"cannot verify email or username"});     
+        const user = await User.findOne({ email });
+        if (!user) {
+          return res.status(401).send({ error: 'Invalid email or password' });     
         }
 
         const validPassword = await bcrypt.compare(password, user.password);
@@ -21,7 +20,7 @@ const userLogin =  async (req,res) => {
             return res.status(401).send({msg: 'password not valid'});
         }
 
-        const token = jwt.sign({id: user._id}, PRIVATE_KEY);
+        const token = jwt.sign({id: user._id, email: user.email}, PRIVATE_KEY);
         res.status(200).send({token});
 
         

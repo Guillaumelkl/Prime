@@ -5,7 +5,7 @@ import"./registration.css"
 const RegistrationForm = () => {
   const { register, handleSubmit, reset, formState: { errors }} = useForm();
 
-  const onSubmit = async (data) => {
+  const onSubmit = async (dataUser) => {
     reset({
       firstName:"",
       lastName:"",
@@ -13,7 +13,7 @@ const RegistrationForm = () => {
       email: "",
       password: "",
     });
-    await DataRegistration(data);
+    await DataRegistration(dataUser);
     alert("Registered Successfully");
   };
 
@@ -21,14 +21,33 @@ const RegistrationForm = () => {
     <div className='registration'class="form-group">
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className='form' >
-          <label>FirstName :</label>
-          <input type="string" class="form-control" name="firstName" required= " First name is required"/>
+          <label>First Name :</label>
+          <input type="string" 
+          class="form-control" 
+          name="firstName" 
+          {...register("firstName", {
+            require:[true, "First name is required" ],
+          })}
+          />
           <br/>
-          <label>LastName :</label>
-          <input type="string" class="form-control" name="lastName" required= " Last name is required"/>
+          <label>Last Name :</label>
+          <input 
+          type="string" 
+          class="form-control" 
+          name="lastName"
+          {...register("lastName", {
+            require:[true, "Last name is required" ],
+          })}
+          />
           <br/>
           <label>Username :</label>
-          <input type="string" class="form-control" name="userName" required= " first name is required"/>
+          <input type="string" 
+          class="form-control" 
+          name="userName" 
+          {...register("userName", {
+            require:[true, "Username name is required" ],
+          })}
+          />
           <br/>
           <label>Email : </label>
           <input

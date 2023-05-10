@@ -1,6 +1,6 @@
 const express = require('express');
 const cors = require('cors');
-const unprotectedRoutes =require('./Routes/openRoutes')
+const openRoutes =require('./Routes/openRoutes')
 const protectedRoutes = require("./Routes/protectedRoutes");
 
 require("./Database/connection")
@@ -9,7 +9,7 @@ const app = express();
 
 app.use(express.json());
 app.use(cors());
-app.use("/", unprotectedRoutes);
+app.use("/", openRoutes);
 app.use("/auth", protectedRoutes);
 
 

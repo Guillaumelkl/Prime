@@ -20,8 +20,8 @@ const UserRegistry = (req,res) => {
         });
      })
      .catch((error)=>{
-        res.status(500).send({msg:'cannot create account', error
-     });
+        res.status(500).send({msg:'cannot create account'});
+        throw error
     });
   });
         

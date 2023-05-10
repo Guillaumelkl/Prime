@@ -3,15 +3,16 @@ const mongoose = require('mongoose');
 const registerUserSchema = new mongoose.Schema({
     firstName: {
         type: String,
-        required: true
+        require:[true, "First name is required" ]
       },
       lastName: {
         type: String,
-        required: true
+        require:[true, "Last name is required" ]
       },
 
       userName: {
         type: String,
+       require:[true, "Username name is required" ],
        unique: [true, "Username Exist"],
       },
 
