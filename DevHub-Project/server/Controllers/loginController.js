@@ -14,14 +14,14 @@ const userLogin =  async (req,res) => {
           return res.status(401).send({ error: 'Invalid email or password' });     
         }
 
-        const validPassword = await bcrypt.compare(password, user.password);
+        let validPassword = await bcrypt.compare(password, user.password);
 
         if(!validPassword){
             return res.status(401).send({msg: 'password not valid'});
         }
 
-        const token = jwt.sign({id: user._id, email: user.email}, PRIVATE_KEY);
-        res.status(200).send({token});
+        const token = jwt.sign({userId: user._id}, PRIVATE_KEY);
+        res.status(200).send(token);
 
         
     } catch (error) {

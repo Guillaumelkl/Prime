@@ -12,12 +12,15 @@ const UserRegistry = (req,res) => {
                 userName: req.body.userName,
                 email: req.body.email,
                 password: hashedPassword,
+                
             });   
+
         user
         .save()
         .then((result)=> {
             res.status(201).send({msg:'User is registered',result
         });
+
      })
      .catch((error)=>{
         res.status(500).send({msg:'cannot create account'});

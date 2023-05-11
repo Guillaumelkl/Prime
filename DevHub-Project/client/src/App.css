@@ -1,7 +1,30 @@
-.App {
-  text-align: center;
+
+
+.navbar >ul{
+  margin: 5px;
+  padding: 5px;
+}
+
+.form{
+  max-width: fit-content;
+  max-height: fit-content;
+  padding: 5rem;
+  border: 1px solid black;
+  border-radius: 2rem;
+  position: relative;top: 10rem;
+}
+
+
+.registration {
+  padding: 5px;
   
 }
 
 
 
+.form{
+  max-width: fit-content;
+  max-height: fit-content;
+  padding: 4rem;
+  
+}

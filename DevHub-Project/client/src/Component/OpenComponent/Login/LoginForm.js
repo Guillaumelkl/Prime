@@ -2,6 +2,7 @@ import { useForm} from "react-hook-form";
 import DataLogin from './LoginData'
 import { useNavigate } from "react-router-dom";
 
+
 function LoginForm(props) {
    const {register, handleSubmit, reset, formState: {errors}} = useForm();
    const navigate = useNavigate();
@@ -23,8 +24,11 @@ function LoginForm(props) {
   return (
     <div>
       <form onSubmit={handleSubmit(onSubmit)}>
-     <div className='form' class="form-group">
-    <label >Email</label>
+        <div className='form'>
+     <div class="form-group">
+     <h4>Sign In</h4>
+     <br/>
+    <label >Email :</label>
     <input type="email" class="form-control" 
     id="exampleInputEmail1" 
     aria-describedby="emailHelp" 
@@ -39,7 +43,7 @@ function LoginForm(props) {
   </div>
   <br/>
   <div className='form' class="form-group">
-    <label>Password</label>
+    <label>Password :</label>
     <input type="password" 
     class="form-control" 
     id="exampleInputPassword1" 
@@ -60,6 +64,8 @@ function LoginForm(props) {
   </div>
  <br/>
   <button className='form' type="submit" class="btn btn-primary">Submit</button>
+
+  </div>
 </form>
 
     </div>

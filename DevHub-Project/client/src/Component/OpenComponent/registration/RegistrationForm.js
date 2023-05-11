@@ -1,9 +1,10 @@
 import { useForm} from "react-hook-form";
 import DataRegistration from './DataRegistration';
-import"./registration.css"
+import { useNavigate } from "react-router-dom";
 
 const RegistrationForm = () => {
   const { register, handleSubmit, reset, formState: { errors }} = useForm();
+  const navigate = useNavigate();
 
   const onSubmit = async (dataUser) => {
     reset({
@@ -13,17 +14,22 @@ const RegistrationForm = () => {
       email: "",
       password: "",
     });
+    
     await DataRegistration(dataUser);
     alert("Registered Successfully");
+    navigate("/login");
   };
 
   return (
     <div className='registration'class="form-group">
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className='form' >
+        <h4>Sign Up</h4>
+          <br/>
           <label>First Name :</label>
           <input type="string" 
           class="form-control" 
+          placeholder="First Name"
           name="firstName" 
           {...register("firstName", {
             require:[true, "First name is required" ],
@@ -34,6 +40,7 @@ const RegistrationForm = () => {
           <input 
           type="string" 
           class="form-control" 
+          placeholder="Last Name"
           name="lastName"
           {...register("lastName", {
             require:[true, "Last name is required" ],
@@ -43,6 +50,7 @@ const RegistrationForm = () => {
           <label>Username :</label>
           <input type="string" 
           class="form-control" 
+          placeholder="Username"
           name="userName" 
           {...register("userName", {
             require:[true, "Username name is required" ],
@@ -53,6 +61,7 @@ const RegistrationForm = () => {
           <input
             type='email'
             class="form-control"
+            placeholder="Password"
             name='email'
             {...register("email", {
               required: "Email is required.",
@@ -63,14 +72,14 @@ const RegistrationForm = () => {
           />
              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
 
-          {errors.email && <p className='errorMsg'>{errors.email.msg}</p>}
-        </div>
-        <br/>
-        <div className='form'>
+          {errors.email && <p>{errors.email.msg}</p>}
+          <br/>
+          <br/>
           <label>Password : </label>
           <input
             type='password'
             class="form-control"
+            placeholder="Password"
             name='password'
             {...register("password", {
               required: "Password is required.",
@@ -81,14 +90,16 @@ const RegistrationForm = () => {
             })}
           />
           {errors.password && (
-            <p className='errorMsg'>{errors.password.msg}</p>
+            <p>{errors.password.msg}</p>
           )}
+          
               <small id="emailHelp" class="form-text text-muted">Please never share your password with anyone else.</small>
+              <br/>
+              <br/>
+              <button type='submit' class="btn btn-primary" >Register</button>
+        </div>
+       
 
-        </div>
-        <div className='form'>
-          <button type='submit' class="btn btn-primary" >Register</button>
-        </div>
       </form>
     </div>
   );
