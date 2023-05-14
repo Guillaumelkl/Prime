@@ -35,10 +35,10 @@ const deleteProject =  async(req, res)=> {
         let {id} = req.params;
         const toDelete = await projectPostModel.findByIdAndRemove(id);
         res.status(204).send({msg: 'project deleted', toDelete});
-        
+        console.log(toDelete);
     } catch (error) {
         res.status(500).send({msg:"unable to delete project",error});
-        
+        console.log(error);
     }
 }
 

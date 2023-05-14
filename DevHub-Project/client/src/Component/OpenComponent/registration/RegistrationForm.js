@@ -1,20 +1,20 @@
-import { useForm} from "react-hook-form";
+import { useForm } from "react-hook-form";
 import DataRegistration from './DataRegistration';
 import { useNavigate } from "react-router-dom";
 
 const RegistrationForm = () => {
-  const { register, handleSubmit, reset, formState: { errors }} = useForm();
+  const { register, handleSubmit, reset, formState: { errors } } = useForm();
   const navigate = useNavigate();
 
   const onSubmit = async (dataUser) => {
     reset({
-      firstName:"",
-      lastName:"",
-      userName:"",
+      firstName: "",
+      lastName: "",
+      userName: "",
       email: "",
       password: "",
     });
-    
+
     await DataRegistration(dataUser);
     alert("Registered Successfully");
     navigate("/login");
@@ -24,58 +24,63 @@ const RegistrationForm = () => {
     <div className='registration'class="form-group">
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className='form' >
-        <h4>Sign Up</h4>
+          <h4>Sign Up</h4>
           <br/>
-          <label>First Name :</label>
-          <input type="string" 
-          class="form-control" 
-          placeholder="First Name"
-          name="firstName" 
-          {...register("firstName", {
-            require:[true, "First name is required" ],
-          })}
-          />
-          <br/>
-          <label>Last Name :</label>
+          <label>First Name:</label>
           <input 
-          type="string" 
-          class="form-control" 
-          placeholder="Last Name"
-          name="lastName"
-          {...register("lastName", {
-            require:[true, "Last name is required" ],
-          })}
+            type="string" 
+            class="form-control" 
+            placeholder="First Name"
+            name="firstName" 
+            {...register("firstName", {
+              required: "First name is required.",
+            })}
           />
+          {errors.firstName && <p>{errors.firstName.message}</p>}
           <br/>
-          <label>Username :</label>
-          <input type="string" 
-          class="form-control" 
-          placeholder="Username"
-          name="userName" 
-          {...register("userName", {
-            require:[true, "Username name is required" ],
-          })}
+          <label>Last Name:</label>
+          <input 
+            type="string" 
+            class="form-control" 
+            placeholder="Last Name"
+            name="lastName"
+            {...register("lastName", {
+              required: "Last name is required.",
+            })}
           />
+          {errors.lastName && <p>{errors.lastName.message}</p>}
           <br/>
-          <label>Email : </label>
+          <label>Username:</label>
+          <input 
+            type="string" 
+            class="form-control" 
+            placeholder="Username"
+            name="userName" 
+            {...register("userName", {
+              required: "Username is required.",
+            })}
+          />
+          {errors.userName && <p>{errors.userName.message}</p>}
+          <br/>
+          <label>Email:</label>
           <input
             type='email'
             class="form-control"
-            placeholder="Password"
+            placeholder="Email"
             name='email'
             {...register("email", {
               required: "Email is required.",
-              minLength: {
-                pattern: /^[^@ ]+@[^@ ]+\.[^@ .]{2,}$/,
+              pattern: {
+                value: /^[^@ ]+@[^@ ]+\.[^@ .]{2,}$/,
+                message: "Email is not valid.",
               },
             })}
           />
-             <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-
-          {errors.email && <p>{errors.email.msg}</p>}
+          {errors.email && <p>{errors.email.message}</p>}
+          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
           <br/>
           <br/>
-          <label>Password : </label>
+          <label>Password:</label>
           <input
             type='password'
             class="form-control"
@@ -85,25 +90,20 @@ const RegistrationForm = () => {
               required: "Password is required.",
               minLength: {
                 value: 6,
-                message: "Password should be at-least 5 characters.",
+                message: "Password should be at least 6 characters.",
               },
             })}
           />
-          {errors.password && (
-            <p>{errors.password.msg}</p>
-          )}
-          
-              <small id="emailHelp" class="form-text text-muted">Please never share your password with anyone else.</small>
-              <br/>
-              <br/>
-              <button type='submit' class="btn btn-primary" >Register</button>
+          {errors.password && <p>{errors.password.message}</p>}
+          <small id="emailHelp" class="form-text text-muted">Please never share your password with anyone else.</small>
+          <br/>
+          <br/>
+          <button type='submit' class="btn btn-primary" >Register</button>
         </div>
-       
-
       </form>
     </div>
   );
 };
   
 
-export default RegistrationForm
+export default RegistrationForm;

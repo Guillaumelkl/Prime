@@ -1,4 +1,3 @@
-
 import axios from 'axios';
 
 const DataRegistration = async (data) => {
@@ -6,7 +5,6 @@ const DataRegistration = async (data) => {
         await axios.post("http://localhost:8080/register", data);
       } catch (error) {
         alert("cannot Register");
-        console.log(error);
       }
     };
 

@@ -28,3 +28,35 @@
   padding: 4rem;
   
 }
+
+.projects{
+  display: flex;
+  justify-content: center;
+
+}
+
+.projects > nav {
+  gap: 5rem;
+
+}
+
+.addPro > button{
+  border: none;
+  background-color: white;
+
+}
+
+
+.viewPro > button{
+  border: none;
+  background-color: white;
+
+}
+
+.proLinks{
+  display: flex;
+  justify-content: center;
+  justify-content: space-around;
+  text-decoration: none;
+  font-size: larger;
+}

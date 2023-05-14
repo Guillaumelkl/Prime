@@ -7,21 +7,10 @@ const {postProject,
        deleteProject
       }  = require("../Controllers/postProjectControllers");
 
-const {myPost,
-       updatePost,
-       deletePost
-} = require("../Controllers/postCommentController")
 
-router.post("/postProject", postProject );
-router.get("/getProjects", getProjects)
-router.delete("/deleteProject", authorize, deleteProject)
-
-
-router.post("/myPost", authorize, myPost );
-router.put("/updatePost", authorize, authorize, updatePost );
-router.delete("/deletePost", authorize, deletePost)
-
-
+router.post("/postProject", authorize, postProject);
+router.get("/getProjects", authorize, getProjects);
+router.delete("/delete/:id", authorize, deleteProject);
 
 module.exports = router;
 

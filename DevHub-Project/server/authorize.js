@@ -4,26 +4,35 @@ require("dotenv").config();
 
 const verifyToken = async (req,res,next) =>{
     try {
-        if(!req.headers.authorization){
-            return res.status(401).send({msg:'cannot get token'});
+        const authHeader = req.headers.authorization;
+        if (!authHeader) {
+          return res.status(401).send({ msg: 'Authorization header not found' });
         }
-        const token = await req.headers.authorization.split(" ");
-        if(!token){
-            res.status(401).send({msg:"token invalid"});
+    
+        const [bearer, token] = authHeader.split(' ');
+        if (bearer !== 'Bearer' || !token) {
+          return res.status(401).send({ msg: 'Invalid authorization header' });
         }
-        const validToken = jwt.verify(token, PRIVATE_KEY);
-
-        if(!validToken) {
-            return res.send({msg:'cannot verify the token'});
+    
+        try {
+          const decodedToken = jwt.verify(token,PRIVATE_KEY)[1];
+          req.user = decodedToken;
+          next();
+        } catch (err) {
+            
+          if (err.name === 'JsonWebTokenError') {
+            return res.status(401).send({ msg: 'Invalid token' });
+          } else if (err.name === 'Token Expired Error') {
+            return res.status(401).send({ msg: 'Token expired' });
+          } else {
+            throw err;
+          }
         }
-
-        req.user = validToken;
-        next();
-        
-    } catch (error) { 
-        console.log(error)
-    }
-};
+      } catch (err) {
+        console.log(err);
+        return res.status(500).send({ msg: 'Internal server error' });
+      }
+    };
 
 module.exports = verifyToken;
 

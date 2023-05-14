@@ -13,7 +13,7 @@ function Navbar() {
             <ul class="nav nav-pills"> 
                 <Link to="/" className="main" class="navbar-brand">DevHub</Link>
                 <Link to='/home' class="navbar-brand">Hub</Link>
-                <Link to='/project' class="navbar-brand">My Project</Link>
+                <Link to='/project' class="navbar-brand">Project</Link>
                 
             </ul>
             <ul>
