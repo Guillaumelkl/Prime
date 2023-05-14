@@ -4,18 +4,17 @@ const postProjectSchema = new mongoose.Schema({
     title: {
         type: String,
       },
-      post: {
-        type: String,
-      },
+
       technology: {
         type: String,
       },
-      Summary: {
+      
+      summary: {
         type: String,
         
       },
 });
 
-const postProjectModel = mongoose.model('projectPostModel', postProjectSchema);
+const postProject = mongoose.model('projectPost', postProjectSchema);
 
-module.exports = postProjectModel;
+module.exports = postProject;
