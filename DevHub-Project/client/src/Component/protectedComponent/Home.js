@@ -1,9 +1,13 @@
 import React from 'react'
+import CommentSection from './CommentSection'
+
 
 function Home() {
   return (
-    <div>Home</div>
-  )
+    <>
+    <CommentSection/>
+    </>   
+  );
 }
 
 export default Home

@@ -7,7 +7,7 @@ const userLogin = require("../Controllers/loginController");
 const {getComments,
     createComment,
     updateComment,
-    deleteComment
+    deleteComment,
 } = require("../Controllers/postCommentController")
 
 router.post("/register", UserRegistry);
@@ -16,6 +16,8 @@ router.post("/login", userLogin );
 
 router.get('/getComment', getComments);
 router.post('/addComment', createComment);
+
+
 router.put('/editComment/:id', updateComment);
 router.delete('/deleteComment:id', deleteComment);
 

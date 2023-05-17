@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from "react-router-dom";
 
 function AddProject() {
   const [title, setTitle] = useState('');
   const [technology, setTechnology] = useState('');
   const [summary, setSummary] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -27,10 +29,14 @@ function AddProject() {
       console.error(error);
     }
   };
+  const handleReturn = () => {
+    navigate("/Project");
+  };
 
   return (
     <div >
       <h4>Add a new project</h4>
+      <button onClick={handleReturn}>Return</button>
       <form onSubmit={handleSubmit}>
       <div>
         <div class="form-group">

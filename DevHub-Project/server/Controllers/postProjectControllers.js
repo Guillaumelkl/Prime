@@ -1,11 +1,11 @@
-const projectPostModel = require('../Models/projectPostModel');
+const projectPost = require('../Models/projectPostModel');
 const mongoose = require('mongoose');
 
 const postProject =  async (req,res) => {
     const {title, technology, summary} = req.body;
 
     try {
-        await projectPostModel.create({
+        await projectPost.create({
             title,
             technology,
             summary
@@ -20,27 +20,31 @@ const postProject =  async (req,res) => {
 
 
 const getProjects = async (req, res) => {
-    try {
-        const projects =  await projectPostModel.find();
-        res.send(projects);
+  try {
+    let { id } = req.params;
+      const projects =  await projectPost.find(id);
+      res.send(projects);
+      
+  } catch (error) {
+      res.status(500).send({msg:'unable to get projects', error});
         
-    } catch (error) {
-        res.status(500).send({msg:'unable to get projects', error});
-          
-    }
+  }
 }
 
-const deleteProject =  async(req, res)=> {
+  
+
+const deleteProject = async (req, res) => {
     try {
-        let {id} = req.params;
-        const toDelete = await projectPostModel.findByIdAndRemove(id);
-        res.status(204).send({msg: 'project deleted', toDelete});
-        console.log(toDelete);
+      let { id } = req.params;
+      const toDelete = await projectPost.findByIdAndRemove(id);
+      res.status(204).send({ msg: 'Project deleted', toDelete });
+      console.log(toDelete);
     } catch (error) {
-        res.status(500).send({msg:"unable to delete project",error});
-        console.log(error);
+      res.status(500).send({ msg: 'Unable to delete project', error });
+      console.log(error);
     }
-}
+  }
+  
 
 module.exports = {
     postProject,
