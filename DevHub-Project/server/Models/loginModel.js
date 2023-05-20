@@ -8,6 +8,12 @@ const loginUserSchema = new mongoose.Schema({
       
       },
 
+      userName: {
+        type: String,
+       require:[true, "Username name is required" ],
+       unique: [true, "Username Exist"],
+      },
+
       password: {
         type: String,
         required: [true, "Please enter a password"],

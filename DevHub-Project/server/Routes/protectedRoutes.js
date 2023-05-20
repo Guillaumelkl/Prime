@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const authorize = require("../authorize")
+const permission = require("../permission/permission")
 
 
 const {postProject,
@@ -9,9 +10,9 @@ const {postProject,
       }  = require("../Controllers/postProjectControllers");
 
 
-router.post("/postProject", authorize, postProject);
+router.post("/postProject",authorize,  postProject);
 router.get("/getProjects", authorize, getProjects);
-router.delete("/delete/:id", deleteProject);
+router.delete("/delete/:id",authorize, deleteProject);
 
 module.exports = router;
 
