@@ -1,29 +1,41 @@
-const mongoose = require('mongoose');
-const User = require('../Models/loginModel');
+// const mongoose = require('mongoose');
+// const User = require('../Models/loginModel');
+
+
 
 // const postProjectSchema = new mongoose.Schema({
-//     title: {
-//         type: String,
-//       },
-
-//       technology: {
-//         type: String,
-//       },
-      
-//       summary: {
-//         type: String,
-        
-//       },
-  
-//       userName: {
-//         type: String,
-        
-//       },
+//   title: {
+//     type: String,
+//   },
+//   technology: {
+//     type: String,
+//   },
+//   summary: {
+//     type: String,
+//   },
+//   createdBy: {
+//     type: mongoose.Schema.Types.ObjectId,
+//     ref: 'User',
+//   },
+//   userName: {
+//     type: String,
+//   },
+//   userId: {
+//     type: mongoose.Schema.Types.ObjectId,
+//     ref: 'User',
+    
+//   },
 // });
 
 // const postProject = mongoose.model('projectPost', postProjectSchema);
 
 // module.exports = postProject;
+
+
+
+
+const mongoose = require('mongoose');
+const User = require('../Models/loginModel');
 
 const postProjectSchema = new mongoose.Schema({
   title: {
@@ -33,6 +45,9 @@ const postProjectSchema = new mongoose.Schema({
     type: String,
   },
   summary: {
+    type: String,
+  },
+  URL: {
     type: String,
   },
   createdBy: {
@@ -45,7 +60,6 @@ const postProjectSchema = new mongoose.Schema({
   userId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
-    
   },
 });
 

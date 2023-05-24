@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form";
 import DataRegistration from './DataRegistration';
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const RegistrationForm = () => {
   const { register, handleSubmit, reset, formState: { errors } } = useForm();
@@ -99,6 +100,13 @@ const RegistrationForm = () => {
           <br/>
           <br/>
           <button type='submit' class="btn btn-primary" >Register</button>
+          <br/>
+          <br/>
+          <ul>
+          <p>You already have an account? <Link to='/login'>Login</Link></p>
+          
+          </ul>
+          
         </div>
       </form>
     </div>

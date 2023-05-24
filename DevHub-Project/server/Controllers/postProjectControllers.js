@@ -5,17 +5,18 @@ const mongoose = require('mongoose');
 
 
 const postProject = async (req, res) => {
-  const { title, technology, summary } = req.body;
+  const { title, technology, summary,URL } = req.body;
   const userId = req.user.userId;
-  console.log(userId);
+  
 
   try {
     await projectPost.create({
       title: title,
       technology: technology,
       summary: summary,
-      createdBy: userId, // Assign the userId to the createdBy field
-      userId: userId, // Assign the userId to the userId field
+      createdBy: userId,
+      userId: userId,
+      URL: URL 
     });
 
     res.status(200).send({ msg: 'Project has been saved successfully.' });
@@ -35,10 +36,10 @@ const getProjects = async (req, res) => {
     }
 
     const userId = req.user.userId;
-    console.log(userId);
+    
     const projects = await projectPost.find({ userId });
     res.send(projects);
-    console.log(projects);
+    
   } catch (error) {
     res.status(500).send({ msg: 'Unable to get projects', error });
   }

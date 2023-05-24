@@ -6,65 +6,110 @@ const CommentSection = () => {
   const [comments, setComments] = useState([]);
   const [commentText, setCommentText] = useState('');
   const [responseTexts, setResponseTexts] = useState([]);
+  const [userName, setUserName] = useState('');
+  const [userId, setUserId] = useState(''); // Add userId state variable
 
   useEffect(() => {
     getComments();
+    getUserName();
   }, []);
 
   const getComments = async () => {
     try {
       const response = await axios.get('http://localhost:8080/getComment');
-      setComments(response.data);
+      setComments(response.data.reverse());
     } catch (error) {
       console.error(error);
     }
   };
 
-  const createComment = async (e, parentCommentId = null) => {
+  const getUserName = async (userId) => {
+    try {
+      const response = await axios.get(`http://localhost:8080/getUsername/${userId}`);
+      setUserName(response.data.foundUserName);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const createComment = async (e) => {
     e.preventDefault();
+
     try {
       const response = await axios.post('http://localhost:8080/addComment', {
         text: commentText,
-        author: 'Your Name', // Replace with the actual author's name or a user identifier
-        parent: parentCommentId,
+        userName: userName, 
+        parent: null,
       });
+
       const newComment = response.data;
-      setComments((prevComments) => [...prevComments, newComment]);
+      setComments((prevComments) => [newComment, ...prevComments]);
       setCommentText('');
     } catch (error) {
       console.error(error);
     }
   };
 
-  const createResponse = async (e, parentCommentId, responseIndex) => {
+  const createResponse = async (e, parentCommentId, commentIndex) => {
     e.preventDefault();
     try {
       const response = await axios.post('http://localhost:8080/addComment', {
-        text: responseTexts[responseIndex],
-        author: 'Your Name', // Replace with the actual author's name or a user identifier
+        text: responseTexts[commentIndex],
+        userName: userName, 
         parent: parentCommentId,
       });
+
       const newResponse = response.data;
       setComments((prevComments) => {
         const updatedComments = [...prevComments];
-        const commentIndex = updatedComments.findIndex(
-          (comment) => comment._id === parentCommentId
-        );
-        updatedComments[commentIndex].responses.push(newResponse);
+        const parentCommentIndex = updatedComments.findIndex(comment => comment._id === parentCommentId);
+        updatedComments[parentCommentIndex].responses.push(newResponse);
         return updatedComments;
       });
-      const updatedResponseTexts = [...responseTexts];
-      updatedResponseTexts[responseIndex] = '';
-      setResponseTexts(updatedResponseTexts);
+
+      setResponseTexts((prevResponseTexts) => {
+        const updatedResponseTexts = [...prevResponseTexts];
+        updatedResponseTexts[commentIndex] = '';
+        return updatedResponseTexts;
+      });
     } catch (error) {
       console.error(error);
     }
   };
 
-  const handleResponseTextChange = (e, responseIndex) => {
+  const handleResponseTextChange = (e, commentIndex) => {
     const updatedResponseTexts = [...responseTexts];
-    updatedResponseTexts[responseIndex] = e.target.value;
+    updatedResponseTexts[commentIndex] = e.target.value;
     setResponseTexts(updatedResponseTexts);
+  };
+
+  const deleteComment = async (commentId) => {
+    try {
+      await axios.delete(`/deleteComment/${commentId}`);
+      setComments((prevComments) =>
+        prevComments.filter((comment) => comment._id !== commentId)
+      );
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const deleteResponse = async (commentId, responseId) => {
+    try {
+      await axios.delete(
+        `http://localhost:8080/deleteResponse/${commentId}/${responseId}`
+      );
+      setComments((prevComments) =>
+        prevComments.map((comment) => ({
+          ...comment,
+          responses: comment.responses.filter(
+            (response) => response._id !== responseId
+          ),
+        }))
+      );
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
@@ -83,14 +128,20 @@ const CommentSection = () => {
         {comments.map((comment, commentIndex) => (
           <div key={comment._id} className="form">
             <p>
-              <strong>{comment.author}: </strong>
+              <strong>{comment.userName}: </strong>
               {comment.text}
+              {comment.userId === userId && (
+                <button onClick={() => deleteComment(comment._id)}>Delete</button>
+              )}
             </p>
             <ul>
-              {comment.responses.map((response, responseIndex) => (
+              {comment.responses.map((response) => (
                 <li key={response._id}>
-                  <strong>{response.author}: </strong>
+                  <strong>{response.userName}: </strong>
                   {response.text}
+                  {response.userId === userId && (
+                    <button onClick={() => deleteResponse(comment._id, response._id)}>Delete</button>
+                  )}
                 </li>
               ))}
             </ul>
@@ -113,5 +164,8 @@ const CommentSection = () => {
 };
 
 export default CommentSection;
+
+
+
 
 
