@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form";
 import DataRegistration from './DataRegistration';
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import "./registration.css"
 
 const RegistrationForm = () => {
   const { register, handleSubmit, reset, formState: { errors } } = useForm();
@@ -22,9 +23,9 @@ const RegistrationForm = () => {
   };
 
   return (
-    <div className='registration'class="form-group">
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <div className='form' >
+    <div class="form-group" >
+      <form  onSubmit={handleSubmit(onSubmit)}>
+        <div className='registration' >
           <h4>Sign Up</h4>
           <br/>
           <label>First Name:</label>

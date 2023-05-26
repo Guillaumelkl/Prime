@@ -58,10 +58,33 @@ const deleteProject = async (req, res) => {
       console.log(error);
     }
   }
+
+  const editProject = async (req, res) => {
+    const { title, technology, summary, URL } = req.body;
+    const { id } = req.params;
+  
+    try {
+      const project = await projectPost.findByIdAndUpdate(id, {
+        title: title,
+        technology: technology,
+        summary: summary,
+        URL: URL
+      });
+  
+      if (!project) {
+        return res.status(404).send({ error: 'Project not found' });
+      }
+  
+      res.status(200).send({ msg: 'Project has been updated successfully.' });
+    } catch (error) {
+      res.status(500).send({ error: 'Failed to update project' });
+    }
+  };
   
 
 module.exports = {
     postProject,
     getProjects,
-    deleteProject
+    deleteProject,
+    editProject
 }

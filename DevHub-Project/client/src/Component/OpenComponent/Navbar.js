@@ -11,8 +11,8 @@ function Navbar() {
       {token?(
         <nav className="navbar" class="navbar navbar-dark bg-dark">
             <ul class="nav nav-pills"> 
-                <Link to="/" className="main" class="navbar-brand">DevHub</Link>
-                <Link to='/home' class="navbar-brand">Hub</Link>
+                
+                <Link to='/home' className="main" class="navbar-brand">Hub</Link>
                 <Link to='/project' class="navbar-brand">Tech news</Link>
                 <Link to="/GetProjects" class="navbar-brand">Project</Link>
                 

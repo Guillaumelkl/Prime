@@ -1,11 +1,11 @@
 import React from 'react'
-import CommentSection from './CommentSection'
+import Question from '../protectedComponent/Question-answer/Question';
 
 
 function Home() {
   return (
     <>
-    <CommentSection/>
+    <Question/>
     </>   
   );
 }

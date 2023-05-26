@@ -9,9 +9,8 @@ const loginUserSchema = new mongoose.Schema({
       },
 
       userName: {
-        type: String,
-       require:[true, "Username name is required" ],
-       unique: [true, "Username Exist"],
+        type: mongoose.Schema.Types.ObjectId,
+          ref: 'User',  
       },
 
       password: {

@@ -10,26 +10,17 @@ function LandingPage() {
     };
   }, []);
 
-  function Footer() {
-    return (
-      <footer>
-        <ul>
-          <li><a href="/about">About</a></li>
-          <li><a href="https://www.facebook.com">Facebook</a></li>
-          <li><a href="https://www.linkedin.com">LinkedIn</a></li>
-        </ul>
-      </footer>
-    );
-  }
+ 
 
   return (
     <div>
-      <h1>Welcome to the Landing Page</h1>
+      
       <RegistrationForm />
       <div>
-      
       </div>
     </div>
+    
+    
   );
 }
 

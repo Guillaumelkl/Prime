@@ -1,7 +1,7 @@
 import { useForm} from "react-hook-form";
 import DataLogin from './LoginData'
 import { useNavigate } from "react-router-dom";
-
+import "./login.css"
 
 function LoginForm(props) {
    const {register, handleSubmit, reset, formState: {errors}} = useForm();
@@ -21,11 +21,12 @@ function LoginForm(props) {
     }
    }
 
+
   return (
-    <div>
+    <div className="test">
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div className='form'>
-          <div class="form-group">
+        <div className='loginForm' >
+          <div   class="form-group">
             <h4>Sign In</h4>
             <br/>
             <label>Email :</label>
@@ -43,9 +44,8 @@ function LoginForm(props) {
               <p className='errorMsg'>Invalid email address format</p>
             )}
             <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-          </div>
-          <br/>
-          <div className='form' class="form-group">
+
+            <div className='form' class="form-group">
             <label>Password :</label>
             <input type="password" 
               class="form-control" 
@@ -64,10 +64,12 @@ function LoginForm(props) {
               <p className='errorMsg'>{errors.password.message}</p>
             )}
             <small id="emailHelp" class="form-text text-muted">Please never share your password with anyone else.</small>
+            <br/>
+            <br/>
+            <button id="btnLogin" className='form' type="submit" class="btn btn-primary">Submit</button>
           </div>
-          <br/>
-          <button className='form' type="submit" class="btn btn-primary">Submit</button>
-        </div>
+          </div>
+          </div> 
       </form>
     </div>
   )
