@@ -28,16 +28,16 @@ function Question() {
   const askQuestion = async (e) => {
     e.preventDefault();
     try {
-      const token = localStorage.getItem('token');
       const config = {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       };
-      const newQuestion = { questionTitle, questionText };
+      const newQuestion = { title:questionTitle, text:questionText };
       await axios.post('http://localhost:8080/auth/addQuestion', newQuestion, config);
            setQuestionTitle(''); 
-           setQuestionText('');  
+           setQuestionText('');
+           getQuestion()  
     } catch (error) {
       alert('Cannot add Question');
       console.error(error);
@@ -88,6 +88,7 @@ function Question() {
   // }
 
   async function deleteQuestion(id) {
+    console.log(id)
     const confirmed = window.confirm('Are you sure you want to delete this comment?');
     if (!confirmed) {
       console.log('Deletion canceled');
@@ -107,10 +108,10 @@ function Question() {
     }
   }
   
+  console.log(question)
 
   useEffect(() => {
-    getQuestion()
-    ;
+    getQuestion();
   }, []);
 
 
@@ -123,12 +124,14 @@ function Question() {
           value={questionTitle}
           onChange={(e) => setQuestionTitle(e.target.value)}
           placeholder="Enter the title..."
+          required
         />
         <br />
         <textarea
           value={questionText}
           onChange={(e) => setQuestionText(e.target.value)}
           placeholder="Ask a question..."
+          required
         ></textarea>
         <br />
         <button onClick={askQuestion}>Ask</button>
@@ -136,11 +139,11 @@ function Question() {
       <div >
         <div >
         {question.map((question) => (
-          <div className='form' key={question.id}>
+          <div className='form' key={question._id}>
             <h2>{question.title}</h2>
             <p>{question.text}</p>
-            <button onClick={() => editQuestion(question.id)}>Edit</button>
-            <button onClick={() => deleteQuestion(question.id)}>Delete</button>
+            <button onClick={() => editQuestion(question._id)}>Edit</button>
+            <button onClick={() => deleteQuestion(question._id)}>Delete</button>
             </div>
           
         ))}
