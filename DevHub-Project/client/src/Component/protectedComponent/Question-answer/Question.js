@@ -55,37 +55,6 @@ function Question() {
     }
   };
 
-  // const deleteQuestion = async (id) => {
-   
-  //   try {
-  //     const response = await axios.delete(`http://localhost:8080/auth/deleteQuestion/${id}`);
-  //     console.log(response.data);
-  //     deleteQuestion(); 
-  //   } catch (error) {
-  //     console.error(error);
-  //   }
-  // };
-
-
-  // async function deleteQuestion(id) {
-  //   const confirmed = window.confirm('Are you sure you want to delete this comment?');
-  //   if (!confirmed) {
-  //     console.log(' deletion');
-  //     return;
-  //   }
-
-  //   try {
-  //     await axios.delete(`http://localhost:8080/auth/deleteQuestion/${id}`, {
-  //       headers: {
-  //         Authorization: `Bearer ${localStorage.getItem('token')}`,
-  //       },
-  //     });
-  //     alert(' deleted');
-  //     getQuestion();
-  //   } catch (error) {
-  //     console.log('Error: ', error);
-  //   }
-  // }
 
   async function deleteQuestion(id) {
     console.log(id)

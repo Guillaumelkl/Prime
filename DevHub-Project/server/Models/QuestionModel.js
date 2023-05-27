@@ -21,12 +21,7 @@ const questionSchema = new mongoose.Schema({
           ref: 'User',   
         },
 
-   comments: 
-          {
-            text: {
-              type: String,
-              }
-          }    
+   comments: []   
   
 });
 

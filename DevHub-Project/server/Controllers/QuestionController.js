@@ -2,69 +2,6 @@ const questionModel = require('../Models/QuestionModel');
 const User = require("../Models/loginModel")
 
 
-
-
-// const createQuestion = async (req, res) => {
-//   try {
-//     const { title, text } = req.body;
-//     const userId = req.userId;
-
-//     const question = await questionModel.create({
-//       title:title,
-//       text:text,
-//       userId:userId,
-//       comments:  [] 
-//     });
-
-//     res.status(200).send({ msg: 'Question has been saved successfully.', question });
-//   } catch (error) {
-//     console.log('Error creating question:', error);
-//     res.status(500).send({ error: 'Failed to create question', error });
-//   }
-// };
-
-
-// const createQuestion = async (req, res) => {
-//   try {
-//     const { title, text } = req.body;
-//     const userId = req.userId;
-
-//     const question = await questionModel.create({
-//       title:title,
-//       text:text,
-//       userId,
-//       comments: []
-//     });
-
-//     res.status(200).send({ msg: 'Question has been saved successfully.', question });
-//     console.log(question)
-//   } catch (error) {
-//     console.log( error);
-//     res.status(500).send({ error: 'Failed to create question', error });
-//   }
-// };
-
-// const createQuestion = async (req, res) => {
-//   const { title, text } = req.body;
-//   const userId = req.user;
-  
-
-//   try {
-//     await questionModel.create({
-//       title,
-//       text,
-//       userId,
-//       comments: []
-//     });
-//      console.log(text)
-//     res.status(200).send({ msg: 'Project has been saved successfully.' });
-//   } catch (error) {
-//     res.status(500).send({ msg: 'Cannot post project', error });
-//     console.log('error', error);
-//   }
-// };
-
-
 const createQuestion = async (req, res) => {
   try {
     const { title, text, comments } = req.body;
@@ -85,6 +22,16 @@ const createQuestion = async (req, res) => {
 };
 
 
+const comments = async (req, res) => {
+  const id = req.params.id;
+  try {
+    await questionModel.updateOne({ _id: id }, { $push: { comments: req.body } });
+    console.log(id)
+    res.status(200).send({msg:"comment added"})
+  } catch (error) {
+    res.send(error);
+  }
+};
 
 
 const getAllQuestions = async (req, res) => {
@@ -136,7 +83,7 @@ const deleteQuestionById = async (req, res) => {
 module.exports = {
   createQuestion,
   getAllQuestions,
-  updateQuestionById,
+  comments,
   deleteQuestionById
 };
 
