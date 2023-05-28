@@ -1,0 +1,36 @@
+body{
+    margin: 0px;
+   padding: 0px;
+   
+}
+
+
+
+.loginForm{
+    margin: 5rem;
+    padding: 2rem;
+    max-width: fit-content;
+    max-height: fit-content;
+    color: white;
+    background-color: rgba(1, 65, 31, 0.5);
+    box-shadow: 0 4px 9px rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+    border: none;
+}
+
+.loginForm > input{
+   border: none;
+   margin: 0px;
+   padding: 2;
+   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+   height: 2.5rem;
+   background-color: black;
+}
+
+#btnLogin{
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.login{
+    margin: 1.5rem;
+}

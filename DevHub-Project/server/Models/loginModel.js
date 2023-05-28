@@ -8,6 +8,11 @@ const loginUserSchema = new mongoose.Schema({
       
       },
 
+      userName: {
+        type: mongoose.Schema.Types.ObjectId,
+          ref: 'User',  
+      },
+
       password: {
         type: String,
         required: [true, "Please enter a password"],

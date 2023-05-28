@@ -1,9 +1,13 @@
 import React from 'react'
+import Question from '../protectedComponent/Question-answer/Question';
+
 
 function Home() {
   return (
-    <div>Home</div>
-  )
+    <>
+    <Question/>
+    </>   
+  );
 }
 
 export default Home

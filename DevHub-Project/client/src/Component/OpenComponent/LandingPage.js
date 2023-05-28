@@ -1,17 +1,27 @@
-import React, {useEffect} from 'react'
-
+import React, { useEffect } from 'react';
+import RegistrationForm from './registration/RegistrationForm';
 
 function LandingPage() {
-    useEffect(() => {
-        document.body.classList.add('Landing-Page');
-    
-        return () => {
-          document.body.classList.remove('Landing-Page');
-        };
-      }, []);
+  useEffect(() => {
+    document.body.classList.add('Landing-Page');
+
+    return () => {
+      document.body.classList.remove('Landing-Page');
+    };
+  }, []);
+
+ 
+
   return (
-    <div>LandingPage</div>
-  )
+    <div>
+      
+      <RegistrationForm />
+      <div>
+      </div>
+    </div>
+    
+    
+  );
 }
 
-export default LandingPage
+export default LandingPage;

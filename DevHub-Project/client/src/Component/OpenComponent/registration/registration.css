@@ -1,0 +1,33 @@
+body{
+    margin: 0px;
+    padding: 0px;
+    
+}
+
+
+.registration{
+    margin: 5rem;
+    padding: 2rem;
+    max-width: fit-content;
+    max-height: fit-content;
+    color: white;
+    background-color: rgba(1, 65, 31, 0.5);
+    box-shadow: 0 4px 9px rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
+    border: none;
+
+}
+
+
+.registration > input{
+    border: none;
+    margin: 0px;
+    padding: 1rem;
+    height: 2.5rem;
+   
+}
+
+.registration > button{
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
