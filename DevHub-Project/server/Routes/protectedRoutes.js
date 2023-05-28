@@ -26,7 +26,7 @@ router.put("/editProject/:id", editProject)
 
 
 router.get('/getQuestion',verifyToken, getAllQuestions);
-router.post('/addQuestion', verifyToken, createQuestion);
+router.post('/addQuestion', createQuestion);
 router.post('/comments/:id', comments);
 router.delete('/deleteQuestion/:id', deleteQuestionById);
 

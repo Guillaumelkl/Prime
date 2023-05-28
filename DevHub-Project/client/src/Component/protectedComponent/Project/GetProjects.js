@@ -1,8 +1,20 @@
-
+import React from 'react';
+import {
+  MDBCard,
+  MDBCardBody,
+  MDBCardTitle,
+  MDBCardSubTitle,
+  MDBCardText,
+  MDBCardLink,
+  MDBBtn,
+  MDBInput,
+  MDBTextArea 
+} from 'mdb-react-ui-kit';
 
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import "./getProject.css"
 
 function GetProjects() {
   const [projects, setProjects] = useState([]);
@@ -68,9 +80,7 @@ function GetProjects() {
     }
   }
 
-  useEffect(() => {
-    myProjects();
-  }, []);
+  
 
   const handleEdit = (index, field, value) => {
     const updatedProjects = [...editedProjects];
@@ -78,27 +88,36 @@ function GetProjects() {
     setEditedProjects(updatedProjects);
   };
 
+  useEffect(() => {
+    myProjects();
+  }, []);
+
   return (
-    <div>
-      <h4>My Projects</h4>
-      <ul>
-        <Link to="/addProject" className="navbar-brand">
+    <div >
+      
+      <form >
+      <ul className='prolinkList'>
+        <Link to="/addProject" className='proLink'>
           Add Project
         </Link>
       </ul>
-
+      <br/>
       <div>
-        <div>
+        <div className='container'>
           {projects.map((project, index) => {
             const editedProject = editedProjects[index] || project;
             const isEditMode = editModeIndex === index;
 
             return (
-              <div className="form" key={project._id}>
-                <h5>Title :</h5>
+              <div className='container'> 
+              <div className='projectContainer' key={project._id}>
+                <h5 className='titles'>Title </h5>
                 {isEditMode ? (
-                  <input
-                    type="text"
+                  <MDBInput label='New title?' 
+                  id='formTextExample1' 
+                  type='text' 
+                  aria-describedby='textExample1'
+                    
                     value={editedProject.title}
                     onChange={(e) => handleEdit(index, 'title', e.target.value)}
                   />
@@ -106,10 +125,13 @@ function GetProjects() {
                   <div>{project.title}</div>
                 )}
                 <br />
-                <h6>Technologies :</h6>
+                <h5 className='titles'>Technologies </h5>
                 {isEditMode ? (
-                  <input
-                    type="text"
+                  <MDBInput label='What are the technologies?' 
+                  id='formTextExample1' 
+                  type='text' 
+                  aria-describedby='textExample1'
+                    
                     value={editedProject.technology}
                     onChange={(e) => handleEdit(index, 'technology', e.target.value)}
                   />
@@ -117,20 +139,23 @@ function GetProjects() {
                   <div>{project.technology}</div>
                 )}
                 <br />
-                <h6>Summary :</h6>
+                <h5 className='titles'>Summary </h5>
                 {isEditMode ? (
-                  <textarea
+                  <MDBTextArea  label='Any Updates?' id='textAreaExample' rows={6}
                     value={editedProject.summary}
                     onChange={(e) => handleEdit(index, 'summary', e.target.value)}
-                  ></textarea>
+                  ></MDBTextArea>
                 ) : (
                   <p>{project.summary}</p>
                 )}
                 <br />
-                <h6>Project Link :</h6>
+                <h5 className='titles'>Project Link </h5>
                 {isEditMode ? (
-                  <input
-                    type="text"
+                  <MDBInput label='New link?' 
+                  id='formTextExample1' 
+                  type='text' 
+                  aria-describedby='textExample1'
+                    
                     value={editedProject.URL}
                     onChange={(e) => handleEdit(index, 'URL', e.target.value)}
                   />
@@ -142,13 +167,13 @@ function GetProjects() {
                   )
                 )}
                 <br />
-                <br />
-                <button className="card-link" onClick={() => deleteProject(project._id)}>
+                
+                <MDBBtn className="projectBtn" onClick={() => deleteProject(project._id)}>
                   Delete
-                </button>
+                </MDBBtn>
                 {isEditMode ? (
-                  <button
-                    className="card-link"
+                  <bMDBBtn
+                    className="projectBtn"
                     onClick={() =>
                       editProject(
                         project._id,
@@ -160,28 +185,27 @@ function GetProjects() {
                     }
                   >
                     Confirm
-                  </button>
+                  </bMDBBtn>
                 ) : (
-                  <button
-                    className="card-link"
+                  <MDBBtn
+                    className="projectBtn"
                     onClick={() => setEditModeIndex(index)}
                   >
                     Edit
-                  </button>
+                  </MDBBtn>
                 )}
+              </div>
               </div>
             );
           })}
         </div>
       </div>
+      </form>
     </div>
   );
 }
 
 export default GetProjects;
-
-
-
 
 
 

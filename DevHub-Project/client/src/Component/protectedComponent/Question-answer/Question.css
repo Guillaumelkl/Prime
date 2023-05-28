@@ -1,0 +1,20 @@
+.QuestionBox{
+    border: 1px solid black;
+    max-width: fit-content;
+    max-height: fit-content;
+    margin: 5px;
+    padding: 2rem;
+    border-radius: 5px;
+}
+
+.QuestionBox > input{
+ width: 5rem;
+}
+
+.QuestionBox > textarea{
+    width: 50rem;
+}
+
+.QuestionBox > button{
+
+}
