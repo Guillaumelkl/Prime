@@ -238,7 +238,7 @@ function Question() {
     }
   }
 
-  console.log(question);
+  
 
   useEffect(() => {
     getQuestion();
