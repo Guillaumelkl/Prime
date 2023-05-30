@@ -1,6 +1,7 @@
 .container{
     display: grid;
     grid-gap: 2rem;
+    margin: 1.5rem;
 }
 
 .projectContainer{
@@ -54,5 +55,6 @@
 
 .prolinkList{
     padding: 2rem;
+    color: white;
     
 }

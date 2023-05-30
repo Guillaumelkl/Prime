@@ -101,7 +101,6 @@ function GetProjects() {
           Add Project
         </Link>
       </ul>
-      <br/>
       <div>
         <div className='container'>
           {projects.map((project, index) => {
