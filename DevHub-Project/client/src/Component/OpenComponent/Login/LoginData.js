@@ -6,8 +6,7 @@ const DataLogin = async (data) =>{
         if(response.status === 200) {
             localStorage.setItem("token",response.data);
             alert("You are logged in!!");
-
-            return true
+            return true;
         }
         
     } catch (error) {

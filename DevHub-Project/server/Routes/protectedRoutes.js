@@ -14,7 +14,8 @@ const {
       createQuestion,
       getAllQuestions,
       comments,
-      deleteQuestionById
+      deleteQuestionById,
+      
       } = require("../Controllers/QuestionController")
 
 
@@ -29,6 +30,7 @@ router.get('/getQuestion',verifyToken, getAllQuestions);
 router.post('/addQuestion', createQuestion);
 router.post('/comments/:id', comments);
 router.delete('/deleteQuestion/:id', deleteQuestionById);
+
 
 module.exports = router;
 

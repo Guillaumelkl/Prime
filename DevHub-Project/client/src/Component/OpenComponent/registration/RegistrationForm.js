@@ -1,135 +1,3 @@
-// import { useForm } from "react-hook-form";
-// import DataRegistration from './DataRegistration';
-// import { useNavigate } from "react-router-dom";
-// import { Link } from "react-router-dom";
-// import "./registration.css"
-// import {
-//   MDBBtn,
-//   MDBContainer,
-//   MDBRow,
-//   MDBCol,
-//   MDBCard,
-//   MDBCardBody,
-//   MDBInput,
-//   MDBCheckbox,
-//   MDBIcon
-// }
-// from 'mdb-react-ui-kit';
-
-// const RegistrationForm = () => {
-//   const { register, handleSubmit, reset, formState: { errors } } = useForm();
-//   const navigate = useNavigate();
-
-//   const onSubmit = async (dataUser) => {
-//     reset({
-//       firstName: "",
-//       lastName: "",
-//       userName: "",
-//       email: "",
-//       password: "",
-//     });
-
-//     await DataRegistration(dataUser);
-//     alert("Registered Successfully");
-//     navigate("/login");
-//   };
-
-//   return (
-//     <div class="form-group" >
-//       <form  onSubmit={handleSubmit(onSubmit)}>
-//         <div className='registration' >
-//           <h4>Sign Up</h4>
-//           <br/>
-//           <label>First Name:</label>
-//           <input 
-//             type="string" 
-//             class="form-control" 
-//             placeholder="First Name"
-//             name="firstName" 
-//             {...register("firstName", {
-//               required: "First name is required.",
-//             })}
-//           />
-//           {errors.firstName && <p>{errors.firstName.message}</p>}
-//           <br/>
-//           <label>Last Name:</label>
-//           <input 
-//             type="string" 
-//             class="form-control" 
-//             placeholder="Last Name"
-//             name="lastName"
-//             {...register("lastName", {
-//               required: "Last name is required.",
-//             })}
-//           />
-//           {errors.lastName && <p>{errors.lastName.message}</p>}
-//           <br/>
-//           <label>Username:</label>
-//           <input 
-//             type="string" 
-//             class="form-control" 
-//             placeholder="Username"
-//             name="userName" 
-//             {...register("userName", {
-//               required: "Username is required.",
-//             })}
-//           />
-//           {errors.userName && <p>{errors.userName.message}</p>}
-//           <br/>
-//           <label>Email:</label>
-//           <input
-//             type='email'
-//             class="form-control"
-//             placeholder="Email"
-//             name='email'
-//             {...register("email", {
-//               required: "Email is required.",
-//               pattern: {
-//                 value: /^[^@ ]+@[^@ ]+\.[^@ .]{2,}$/,
-//                 message: "Email is not valid.",
-//               },
-//             })}
-//           />
-//           {errors.email && <p>{errors.email.message}</p>}
-//           <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-//           <br/>
-//           <br/>
-//           <label>Password:</label>
-//           <input
-//             type='password'
-//             class="form-control"
-//             placeholder="Password"
-//             name='password'
-//             {...register("password", {
-//               required: "Password is required.",
-//               minLength: {
-//                 value: 6,
-//                 message: "Password should be at least 6 characters.",
-//               },
-//             })}
-//           />
-//           {errors.password && <p>{errors.password.message}</p>}
-//           <small id="emailHelp" class="form-text text-muted">Please never share your password with anyone else.</small>
-//           <br/>
-//           <br/>
-//           <button type='submit' class="btn btn-primary" >Register</button>
-//           <br/>
-//           <br/>
-//           <ul>
-//           <p>You already have an account? <Link to='/login'>Login</Link></p>
-          
-//           </ul>
-          
-//         </div>
-//       </form>
-//     </div>
-//   );
-// };
-  
-
-// export default RegistrationForm;
-
-
 
 import React from 'react';
 import { useForm } from "react-hook-form";
@@ -174,17 +42,13 @@ const RegistrationForm = () => {
       
         <MDBCol md='6' className='text-center text-md-start d-flex flex-column justify-content-center'>
 
-          <h1 className="my-5 display-3 fw-bold ls-tight px-3" style={{color: 'hsl(218, 81%, 95%)'}}>
-            The best offer <br />
-            <span style={{color: 'hsl(218, 81%, 75%)'}}>for your business</span>
+          <h1 className="my-5 display-3 fw-bold ls-tight px-3" style={{color: 'hsl(218, 81%, 70%)'}}>
+            A new way to track your projects 
+            <br />
+            <span style={{color: 'hsl(218, 81%, 60%)'}}>and interact with other Developers</span>
           </h1>
 
-          <p className='px-3' style={{color: 'hsl(218, 81%, 85%)'}}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Eveniet, itaque accusantium odio, soluta, corrupti aliquam
-            quibusdam tempora at cupiditate quis eum maiores libero
-            veritatis? Dicta facilis sint aliquid ipsum atque?
-          </p>
+
 
         </MDBCol>
 
