@@ -1,4 +1,11 @@
 
+.App{
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+
 
 .navbar >ul{
   margin: 5px;
@@ -15,14 +22,7 @@
 
 
 
-.form{
-  max-width: fit-content;
-  max-height: fit-content;
-  padding: 2.5rem;
-  border: 1px solid black;
-  border-radius: 2rem;
-  
-}
+
 
 .projects{
   display: flex;
