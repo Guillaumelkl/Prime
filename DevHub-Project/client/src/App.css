@@ -3,6 +3,8 @@
   display: flex;
   min-height: 100vh;
   flex-direction: column;
+  margin: 0px;
+  padding: 0px;
 }
 
 
@@ -10,18 +12,14 @@
 .navbar >ul{
   margin: 5px;
   padding: 5px;
+  
 }
-
-
 
 
 .registration {
   padding: 2px;
   
 }
-
-
-
 
 
 .projects{

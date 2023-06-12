@@ -28,6 +28,9 @@ function Navbar() {
             <Link to="/library" onClick={handleRefresh} class="navbar-brand">
               Library
             </Link>
+            <Link to="/Profile" onClick={handleRefresh} class="navbar-brand">
+              Profile
+            </Link>
           </ul>
           <ul>
             <Link to="/logout" onClick={handleRefresh} class="btn btn-outline-danger my-3 my-sm-0">

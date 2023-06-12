@@ -100,7 +100,7 @@
     word-wrap: break-word;
     padding: 5rem;
     max-height: fit-content;
-    overflow: auto;
+    
 }
 .comment{
     word-wrap: break-word;

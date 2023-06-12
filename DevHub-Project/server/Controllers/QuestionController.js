@@ -1,5 +1,5 @@
 const questionModel = require('../Models/QuestionModel');
-const User = require("../Models/loginModel")
+const User = require("../Models/registerModel")
 
 
 const createQuestion = async (req, res) => {
@@ -20,6 +20,26 @@ const createQuestion = async (req, res) => {
     res.status(500).send({ error: 'Failed to create question', message: error.message });
   }
 };
+
+
+const getUsername = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const user = await User.findById({ _id: id });
+    if (!user) {
+      return res.status(404).json({ error: 'User not found' });
+    }
+
+    res.send({ username: user.userName });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Server error' });
+  }
+};
+
+
+
+
 
 
 const comments = async (req, res) => {
@@ -45,25 +65,6 @@ const getAllQuestions = async (req, res) => {
 
 
 
-const updateQuestionById = async (req, res) => {
-  try {
-    const { text, userName, userId } = req.body;
-    const question = await questionModel.findById(req.params.id);
-    if (!question) {
-      return res.status(404).json({ error: 'Question not found' });
-    }
-    question.text = text;
-    question.userName = userName;
-    question.userId = userId;
-    const updatedQuestion = await question.save();
-    res.send(updatedQuestion);
-  } catch (error) {
-    res.status(500).send({ error: 'Failed to update question' });
-  }
-};
-
-
-
 const deleteQuestionById = async (req, res) => {
   try {
     const  {id}  = req.params;
@@ -77,11 +78,15 @@ const deleteQuestionById = async (req, res) => {
 
 
 
+
+
+
 module.exports = {
   createQuestion,
   getAllQuestions,
   comments,
-  deleteQuestionById
+  deleteQuestionById,
+  getUsername
 };
 
 

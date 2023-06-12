@@ -167,7 +167,7 @@ function GetProjects() {
                 )}
                 <br />
                 
-                <MDBBtn className="projectBtn" onClick={() => deleteProject(project._id)}>
+                <MDBBtn className="projectBtn" color='danger' onClick={() => deleteProject(project._id)}>
                   Delete
                 </MDBBtn>
                 {isEditMode ? (

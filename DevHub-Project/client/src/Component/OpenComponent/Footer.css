@@ -1,14 +1,13 @@
-body {
-    padding: 0;
-    margin: 0;
-    
-  }
+
   
 .footContainer{
+    margin: 0px;
+    padding: 0px;
    display: flex;
    flex-direction: column;
    margin-top: auto;
-
+   background-color: rgb(33, 33, 33);
+   height: 2rem;
   }
 
 .footer{
@@ -17,14 +16,7 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    background-color: rgb(255, 255, 255);
-    color: rgb(0, 0, 0);
-    
-
-}
-
-
-.links{
-    text-decoration: none;
-    color: white;
+    background-color: rgb(12, 12, 12);
+    color: rgb(255, 255, 255);
+    height: 2rem;
 }

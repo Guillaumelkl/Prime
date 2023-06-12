@@ -34,14 +34,15 @@ function LoginForm(props) {
   }
 
   return (
+    <div className='loginContainer' >
     <MDBContainer className='my-5'>
-      <MDBCard>
+      <MDBCard className='loginCard'>
         <MDBRow className='g-0 d-flex align-items-center'>
           <MDBCol md='4'>
             <MDBCardImage src='https://mdbootstrap.com/img/new/ecommerce/vertical/004.jpg' alt='phone' className='rounded-t-5 rounded-tr-lg-0' fluid />
           </MDBCol>
           <MDBCol md='8'>
-          <h4 className='login'>Log In</h4>
+          <h4 className='login'>Welcome to DevHub </h4>
             <MDBCardBody>
               <form onSubmit={handleSubmit(onSubmit)}>
                 <MDBInput wrapperClass='mb-4' label='Email address' id='form1' type='email' 
@@ -63,13 +64,14 @@ function LoginForm(props) {
                 },
                  })}/>
 
-                <MDBBtn className="mb-4 w-100" type="submit">Sign in</MDBBtn>
+                <MDBBtn className="mb-4 w-100" type="submit">Log in</MDBBtn>
               </form>
             </MDBCardBody>
           </MDBCol>
         </MDBRow>
       </MDBCard>
     </MDBContainer>
+    </div>
   );
 }
 

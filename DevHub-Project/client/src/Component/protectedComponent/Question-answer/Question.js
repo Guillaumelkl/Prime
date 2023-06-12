@@ -60,8 +60,7 @@ function Question() {
 
   const addComment = async (questionId) => {
     try {
-      let token = localStorage.getItem("token");
-      let userInfo = jwt_decode(token);
+      
       
       const newComment = { comment: commentInputs[questionId] || '' };
       const updatedQuestion = question.map((q) => {
@@ -70,13 +69,10 @@ function Question() {
         }
         return q;
       });
-      let commentSchema = {
-        user_userName_id: userInfo.userName,
-        commentText: newComment,
-      };
       await axios.post(`http://localhost:8080/auth/comments/${questionId}`, newComment);
       setCommentInputs({ ...commentInputs, [questionId]: '' });
       setQuestion(updatedQuestion);
+      getUser(questionId);
     } catch (error) {
       console.log(error);
     }
@@ -85,7 +81,6 @@ function Question() {
   async function deleteQuestion(id) {
     const confirmed = window.confirm('Are you sure you want to delete this question?');
     if (!confirmed) {
-      console.log('Deletion canceled');
       return;
     }
 
@@ -98,30 +93,26 @@ function Question() {
       alert('Deletion successful');
       getQuestion();
     } catch (error) {
-      console.log('Error:', error);
+      return ('Error:', error);
     }
   }
 
-  async function getUser(id){
+  const getUser = async (id) => {
     try {
-      let token = localStorage.getItem("token");
-      let userInfo = jwt_decode(token);
-      let usernameSchema = {
-        user_userName_id: userInfo.userName
-      }
-      const userName = await axios.get(`http://localhost:8080/auth/getUser/${id}`,usernameSchema,{
+      const response = await axios.get(`http://localhost:8080/auth/getUser/${id}`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`,
         },
-        
       });
-      
-
-      setUser(userName.data.userName);
+  
+      const user = response.data;
+      if (user && user.userName) {
+        setUser(user.userName);
+      }
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
-  }
+  };
 
   const handleCommentChange = (e, questionId) => {
     setCommentInputs({ ...commentInputs, [questionId]: e.target.value });
@@ -147,7 +138,7 @@ function Question() {
     getQuestion();
   }, []);
 
-  console.log(question);
+  
   return (
     <>
       <div>
@@ -216,18 +207,19 @@ function Question() {
                         placeholder='Add a comment...'
                         required></textarea>
                         
-                      <MDBBtn className='me-2' id='commentBtn' onClick={() => { addComment(q._id) }}>
+                      <MDBBtn className='me-2' id='commentBtn' onChange={getUser} onClick={() => { addComment(q._id) }}>
                         Comment
                       </MDBBtn>
                 
                     </MDBCardBody>
                     <MDBListGroup flush>
-                      {q.comments.slice(0).reverse().map((comment) => (
-                        <MDBListGroupItem key={comment._id}>
-                          <p>{comment.comment}</p>
-                        </MDBListGroupItem>
-                      ))}
-                    </MDBListGroup>
+                    {q.comments.slice(0).reverse().map((comment) => (
+                    <MDBListGroupItem key={comment._id}>
+                      <p>{comment.comment}</p>
+                    
+                   </MDBListGroupItem>
+                   ))}
+                   </MDBListGroup>
                   </MDBCollapse>
                 </MDBCardBody>
               </MDBCard>  
@@ -240,5 +232,8 @@ function Question() {
 }
 
 export default Question;
+
+
+
 
 
