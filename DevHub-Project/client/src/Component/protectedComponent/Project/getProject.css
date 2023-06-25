@@ -1,7 +1,20 @@
+.ProjectMainContainer{
+    display: flex;
+    flex-direction: column;
+    background-image: url(https://images.unsplash.com/photo-1478760329108-5c3ed9d495a0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    min-height: 100vh;
+}
+
+
 .container{
     display: grid;
     grid-gap: 2rem;
     margin: 1.5rem;
+
+    
 }
 
 .projectContainer{
@@ -14,7 +27,8 @@
     padding: 2rem;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
     grid-gap: 40px;
-
+    background-color: rgba(2, 2, 2, 0.557);
+    color: white;
 }
 
 .titles{
@@ -23,6 +37,7 @@
     text-align: center;
     position: relative;bottom: 5px;
     text-align: left;
+    color: white;
 }
 
 .inputsProjects{
@@ -32,7 +47,7 @@
     justify-content: center;
     justify-items: center; 
     text-align: center;
-    
+    color: white;
 }
 
 .projectBtn{
@@ -40,6 +55,7 @@
     display: flex;
     justify-content: space-between;
     width: 6rem;
+    color: white;
 }
 
 .proLink{
@@ -57,4 +73,16 @@
     padding: 2rem;
     color: white;
     
+}
+
+#textAreaExample{
+    color: white;
+}
+
+#formTextExample1{
+    color: white;
+}
+
+.md-form label{
+    color: white;
 }

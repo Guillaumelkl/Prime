@@ -1,8 +1,14 @@
 .mainContainer{
     overflow:hidden;
     background-color: rgb(0, 0, 0);
-    
-    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url(https://images.unsplash.com/photo-1478760329108-5c3ed9d495a0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
     
 }
 
@@ -16,16 +22,16 @@
     padding: 1rem;
     border-radius: 5px;
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.1);
-    background-color: rgb(40, 40, 40);
+    background-color: rgba(40, 40, 40, 0.748);
     position: relative;
-    left: 10rem;
+    left: 0rem;
     transition: width 0.5s; 
     color: white;
   }
   
   .QuestionBox > input {
     width: 5rem;
-    background-color: rgb(133, 133, 133);
+    background-color: rgba(133, 133, 133, 0.246);
     box-shadow: 0px 4px 9px 4px rgba(0, 0, 0, 0.2);
     border: none;
     transition: width 0.5s; 
@@ -34,19 +40,17 @@
 
   .searchContainer{
     box-sizing:border-box;
-    margin-right: 5rem;
+    margin-right: 2rem;
     min-height: 100vh;
-    
-    
+    gap: 1rem;
   }
   
   .searchInput {
     margin: 2rem;
-    margin-right: 3rem;
     position: relative;
     left: 13rem;
     border-radius: 5px;
-    box-shadow: 0px 2px 9px 4px rgba(0, 0, 0, 0.1);
+    
     border: none;
     width: 3.5rem;
     margin-bottom: 1rem;
@@ -64,7 +68,7 @@
     width: 50rem;
     border-radius: 5px;
     border-color: rgb(70, 70, 70);
-    background-color: rgb(67, 67, 67);
+    background-color: rgba(67, 67, 67, 0.68);
     border-style: unset;
     padding: 1rem;
     overflow: auto;
@@ -75,10 +79,6 @@
     margin-left: 45rem;
   }
 
-  .cards{
-    background-color: black;
-    
-  }
   
   .cardContainer {
     margin: 1.5rem;
@@ -91,7 +91,7 @@
     padding: 0rem;
     width: 65rem;
     min-width: 70rem;
-
+    
   }
   
   .questionCard {
@@ -102,6 +102,7 @@
     max-height: 70rem;
     border-radius: 10px;
     box-shadow: 3px 4px 9px 6px rgba(0, 0, 0, 0.3);
+    
   }
   
   .questionContainer {
@@ -116,11 +117,13 @@
   
   .me-1 {
     margin-left: 11rem;
+   
   }
   
   .searchContainer {
     display: flex;
     flex-direction: row;
+    
   }
   
   .comment-input {
@@ -134,28 +137,31 @@
     word-wrap: break-word;
     max-height: fit-content;
     overflow: auto;
+   
   }
   
   #commentBtn {
-    margin-bottom: 10px;
+    margin-bottom: 8px;
   }
   
   .commentSection {
     margin: 0px;
-    padding: 1rem;
+    padding: 2rem;
     word-wrap: break-word;
     border: none;
-    
+    background-color: rgba(21, 21, 21, 0.3);
     min-width: 0;
+    
   }
   
   #textAreaExample1 {
     width: 27rem;
     border-radius: 5px;
     border: none;
-    background-color: rgb(234, 232, 232);
+    background-color: rgb(216, 214, 214);
     margin-right: 2rem;
     overflow: auto;
+    
   }
   
   .cardBody {
@@ -163,5 +169,22 @@
     max-height: 25rem;
     max-width: 45rem;
     min-width: 45rem;
+    background-color: rgb(40, 40, 40);
+    
+  }
+
+  .textComment{
+    color: white;
+  }
+
+  .listGroup{
+    padding: 5px;  
+    
+  }
+
+  .listItem{
+    background-color: rgb(40, 40, 40);
+    color: white;
+    
   }
   

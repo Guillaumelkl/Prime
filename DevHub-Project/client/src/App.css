@@ -5,9 +5,14 @@
   flex-direction: column;
   margin: 0px;
   padding: 0px;
+  background-image: url(https://images.unsplash.com/photo-1478760329108-5c3ed9d495a0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }
 
 .navbar{
+  
   background-color: black;
   background-image: url(https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1472&q=80);
 }
@@ -18,46 +23,14 @@
   
 }
 
-.navbar > ul > h5 {
-  margin: 1rem;
+.navbar  > h5 {
+  display: flex;
   color: white;
-  
+  margin: auto;
+  margin-right: 1rem;
 }
 
 .registration {
   padding: 2px;
-  
 }
 
-
-.projects{
-  display: flex;
-  justify-content: center;
-
-}
-
-.projects > nav {
-  gap: 5rem;
-
-}
-
-.addPro > button{
-  border: none;
-  background-color: white;
-
-}
-
-
-.viewPro > button{
-  border: none;
-  background-color: white;
-
-}
-
-.proLinks{
-  display: flex;
-  justify-content: center;
-  justify-content: space-around;
-  text-decoration: none;
-  font-size: larger;
-}

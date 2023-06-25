@@ -32,8 +32,9 @@ function Navbar() {
             <Link to="/library"  class="navbar-brand">
               Library
             </Link>
-            <h5> {username} </h5>
-          </ul>
+            
+          </ul> 
+          <h5> {username} </h5>
           <ul>
             <Link to="/logout"  class="btn btn-outline-danger my-3 my-sm-0">
               Log out
@@ -42,6 +43,7 @@ function Navbar() {
         </nav>
       ) : (
         <nav className="navbar" class="navbar navbar-dark --bs-primary-border-subtle">
+          
           <ul class="nav nav-pills">
             <Link to="/" className="main" class="navbar-brand">
               DevHub

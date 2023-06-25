@@ -6,6 +6,7 @@ function Library() {
     <div className="library-container">
       <div className="category">
         <h2>React JS</h2>
+        <br/>
         <ul>
           <li>
             <a href="https://react.dev/learn/installation" target="_blank" rel="noopener noreferrer">Installation React J.S</a>
@@ -30,6 +31,7 @@ function Library() {
 
       <div className="category">
         <h2>Javascript</h2>
+        <br/>
         <ul>
           <li>
             <a href="https://www.w3schools.com/js/js_intro.asp" target="_blank" rel="noopener noreferrer">introduction to Javascript</a>
@@ -54,6 +56,7 @@ function Library() {
 
       <div className="category">
         <h2>CSS</h2>
+        <br/>
         <ul>
           <li>
             <a href="https://www.w3schools.com/css/css_intro.asp" target="_blank" rel="noopener noreferrer">Introduction to C.S.S</a>
@@ -78,6 +81,7 @@ function Library() {
 
       <div className="category">
         <h2>Node.JS and express JS</h2>
+        <br/>
         <ul>
           <li>
             <a href="https://expressjs.com/en/starter/installing.html" target="_blank" rel="noopener noreferrer">Express installation</a>

@@ -414,9 +414,9 @@ function Question() {
               {filteredQuestions.map((q, index) => (
                 <MDBCard key={q._id} className='questionCard'>
                   <MDBCardBody className='cardBody'>
-                    <MDBCardTitle>{q.title}</MDBCardTitle>
-                    <MDBCardText>{q.text}</MDBCardText>
-
+                    <MDBCardTitle className='textComment'>{q.title}</MDBCardTitle>
+                    <br/>
+                    <MDBCardText className='textComment'>{q.text}</MDBCardText>
                     <br />
                     <MDBBtn
                       id={`commentBtn-${q._id}`}
@@ -452,9 +452,9 @@ function Question() {
                           .slice(0)
                           .reverse()
                           .map((comment) => (
-                            <MDBListGroupItem key={comment._id}>
-                              <p>{comment.comment}</p>
-                            </MDBListGroupItem>
+                            <MDBListGroup className='listGroup' style={{ minWidthL: '22rem' }}  key={comment._id}>
+                              <MDBListGroupItem  className='listItem'>{comment.comment}</MDBListGroupItem>
+                            </MDBListGroup>
                           ))}
                       </MDBCardBody>
                     </MDBCollapse>
