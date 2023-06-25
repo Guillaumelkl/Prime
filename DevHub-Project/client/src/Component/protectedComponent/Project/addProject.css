@@ -1,4 +1,12 @@
-.addProject{
-    padding: 3rem;
-    margin: 3rem;
-}
+
+  .addProContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-self: center;
+    margin: auto;
+    padding: 2rem;
+    max-width: 50rem;
+    max-height: 50rem;
+    
+  }

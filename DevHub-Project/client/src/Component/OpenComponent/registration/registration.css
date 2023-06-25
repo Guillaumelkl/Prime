@@ -1,7 +1,7 @@
 
 .registerContainer{
     
-    background-image: url(https://media.istockphoto.com/id/1317441544/vector/binary-codes-glitter.jpg?s=612x612&w=0&k=20&c=QFRT6rJL7b8GMnWZZ4TGIxxsadwkf9lUNLd12hKf5GA=);
+    background-image: url(https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1744&q=80);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -11,22 +11,7 @@
 
 
 
-.registration{
-    margin: 5rem;
-    padding: 2rem;
-    max-width: fit-content;
-    max-height: fit-content;
-    color: white;
-    background-color: rgba(1, 65, 31, 0.5);
-    box-shadow: 0 4px 9px rgba(0, 0, 0, 0.4);
-    border-radius: 10px;
-    border: none;
 
-}
-
-.p-4{
-    display: flex;
-}
 
 
 .registration > input{

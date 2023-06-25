@@ -1,34 +1,56 @@
 
 .loginContainer{
-    
-    background-image: url(https://www.shutterstock.com/image-vector/dashboard-application-on-laptop-business-analytics-1994706812);
+    background-image: url(https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1744&q=80);
     background-size: cover;
     background-repeat: no-repeat;
     height: 100vh;
-    background-color: rgb(249, 246, 246);
+    background-color: rgb(0, 0, 0);
     
     
 }
+
+
+
 
 .loginCard{
-    position: absolute;top: 50%;
-    width: 70rem;
-}
-
-
-.loginForm{
-    max-width: fit-content;
-    max-height: fit-content;
-    color: white;
-    background-color: rgba(1, 65, 31, 0.5);
-    box-shadow: 0 4px 9px rgba(0, 0, 0, 0.6);
+    
+    margin-left: 25rem;
+    margin-top: 2rem;
+    min-width: fit-content;
+    min-height: fit-content;
+    max-width: 50rem;
+    max-height: 30rem;
+    color: rgb(8, 8, 8);
+    background-color: rgba(255, 255, 255, 0.872);
+    border-radius: 10px;
     border: none;
 }
 
-
+#loginImg {
+    padding: 0%;
+    margin: 0%;
+    margin-right:0 auto;
+    border: none;
+    min-width: 17rem;
+    min-height: 26rem;
+    background-image: url(https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1472&q=80);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    outline: none;
+  }
 
 
 .login{
     margin: 1.5rem;
     
+}
+
+.loginMsg{
+    display: flex;
+    justify-content: right;
+    align-items: right;
+    margin: 2rem;
+    color: rgba(90, 153, 231, 0.8);
+    word-wrap: break-word;
 }

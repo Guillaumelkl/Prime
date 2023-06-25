@@ -12,6 +12,7 @@ const verifyToken = async (req, res, next) => {
 
     const [bearer, token] = authHeader.split(' ');
     if (bearer !== 'Bearer' || !token) {
+      console.log(`Bearer ${token}`);
       return res.status(401).send({ msg: 'Invalid authorization header' });
     }
 

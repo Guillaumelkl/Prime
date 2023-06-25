@@ -62,8 +62,6 @@ const RegistrationForm = () => {
             <MDBCardBody className='p-5'>
             <h4>Welcome to DevHub, your new way to store and track your projects.</h4>
             <br/>
-            <h5>Register</h5>
-            <br/>
               <form onSubmit={handleSubmit(onSubmit)}>
                 <MDBRow>
                   <MDBCol col='6'>

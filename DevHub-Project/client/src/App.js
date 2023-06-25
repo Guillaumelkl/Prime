@@ -10,7 +10,7 @@ import Home from './Component/protectedComponent/Home';
 import Logout from './Component/protectedComponent/Logout';
 import AddProject from './Component/protectedComponent/Project/AddProject';
 import GetProjects from './Component/protectedComponent/Project/GetProjects';
-import Profil from './Component/protectedComponent/Profile/Profile';
+
 import Footer from './Component/OpenComponent/Footer';
 
 function App() {
@@ -34,7 +34,6 @@ function App() {
             <Route path='/logout' element={<Logout onLogout = {handleUserState}/>} />
             <Route path='/addProject' element={<AddProject />} />
             <Route path='/getProjects' element={<GetProjects />} />
-            <Route path='/profile' element={<Profil />} />
           </Routes>   
         </div> 
       </div>

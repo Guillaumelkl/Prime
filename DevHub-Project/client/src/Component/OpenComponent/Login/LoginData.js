@@ -6,7 +6,6 @@ const DataLogin = async (data) =>{
         if(response.status === 200) {
             localStorage.setItem("token",response.data);
             alert("You are logged in!!");
-            console.log(response)
             return true
         }
         
@@ -17,3 +16,6 @@ const DataLogin = async (data) =>{
 };
 
 export default DataLogin;
+
+
+

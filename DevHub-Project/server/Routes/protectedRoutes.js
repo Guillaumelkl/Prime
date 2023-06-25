@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const verifyToken = require("../authorize")
 
-
+const getProfile = require("../Controllers/profile")
 
 const {postProject,
        getProjects,
@@ -18,6 +18,7 @@ const {
       getUsername
       } = require("../Controllers/QuestionController")
 
+router.get("/getProfile/:id", getProfile);
 
 router.post("/postProject",verifyToken,  postProject);
 router.get("/getProjects", verifyToken, getProjects);
@@ -31,6 +32,7 @@ router.post('/addQuestion', createQuestion);
 router.post('/comments/:id', comments);
 router.delete('/deleteQuestion/:id', deleteQuestionById);
 router.get('/getUser/:id', getUsername)
+
 
 
 module.exports = router;

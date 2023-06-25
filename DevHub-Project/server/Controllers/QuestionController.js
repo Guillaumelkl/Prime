@@ -27,13 +27,15 @@ const getUsername = async (req, res) => {
     const { id } = req.params;
     const user = await User.findById({ _id: id });
     if (!user) {
-      return res.status(404).json({ error: 'User not found' });
+      return res.status(404).send({ error: 'User not found' });
     }
 
-    res.send({ username: user.userName });
+    res.send({
+       username: user.userName
+       });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: 'Server error' });
+    res.status(500).send({ error: 'Server error' });
   }
 };
 

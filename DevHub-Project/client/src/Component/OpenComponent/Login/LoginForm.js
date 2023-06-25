@@ -30,16 +30,16 @@ function LoginForm(props) {
     if (result) {
       props.onLogin(true);
       navigate("/home");
-    }
+    } 
   }
 
   return (
     <div className='loginContainer' >
-    <MDBContainer className='my-5'>
+    <MDBContainer className='my-0'>
+    <h3 className='loginMsg'> DevHub, the start of your new journey as a developer</h3>
       <MDBCard className='loginCard'>
         <MDBRow className='g-0 d-flex align-items-center'>
-          <MDBCol md='4'>
-            <MDBCardImage src='https://mdbootstrap.com/img/new/ecommerce/vertical/004.jpg' alt='phone' className='rounded-t-5 rounded-tr-lg-0' fluid />
+          <MDBCol md='2'>
           </MDBCol>
           <MDBCol md='8'>
           <h4 className='login'>Welcome to DevHub </h4>

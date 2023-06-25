@@ -13,10 +13,9 @@ function LandingPage() {
  
 
   return (
-    <div>
-      
-      <RegistrationForm />
+    <div>     
       <div>
+      <RegistrationForm />
       </div>
     </div>
     

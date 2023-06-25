@@ -47,13 +47,13 @@ function AddProject() {
   
 
   return (
-    <MDBCard alignment='center'>
-      <MDBCardHeader>New Project</MDBCardHeader>
-      <MDBCardBody>
+    
+    <MDBCard alignment='center' className='container'>
+      <MDBCardBody className='container'>
         <MDBCardTitle>Store a new project</MDBCardTitle>
         <form className='addProject' onSubmit={handleSubmit}>
-          <div>
-            <div >
+          <div className='addProContainer'>
+            <div  >
               <label>Title </label>
               <input
                 type="text"
@@ -111,6 +111,7 @@ function AddProject() {
         </form>
       </MDBCardBody>
     </MDBCard>
+
   );
 }
 
