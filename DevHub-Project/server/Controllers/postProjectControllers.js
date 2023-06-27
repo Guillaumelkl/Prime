@@ -1,6 +1,5 @@
 const projectPost = require('../Models/projectPostModel');
-const User = require('../Models/loginModel');
-const mongoose = require('mongoose');
+
 
 
 

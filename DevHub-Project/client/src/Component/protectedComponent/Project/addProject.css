@@ -1,4 +1,31 @@
-.addProject{
-    padding: 3rem;
-    margin: 3rem;
-}
+  .container{
+    margin: 2rem auto;
+    
+  }
+  .addProContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-self: center;
+    margin: auto;
+    padding: 2rem;
+    max-width: 50rem;
+    max-height: 50rem;
+   
+    
+  }
+
+  .addProject{
+    background-color: rgba(63, 63, 63, 0.083);
+  }
+
+  .cardBod{
+   background-color: rgb(30, 30, 30);
+   border-radius: 5px;
+   border: none;
+   
+  }
+
+  .lab{
+    color: white;
+  }

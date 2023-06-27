@@ -1,14 +1,13 @@
-body {
-    padding: 0;
-    margin: 0;
-    
-  }
+
   
 .footContainer{
+    margin: 0px;
+    padding: 0px;
    display: flex;
    flex-direction: column;
    margin-top: auto;
-
+   background-color: rgb(0, 0, 0);
+   height: 2rem;
   }
 
 .footer{
@@ -17,14 +16,8 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    background-color: rgb(255, 255, 255);
-    color: rgb(0, 0, 0);
-    
-
-}
-
-
-.links{
-    text-decoration: none;
-    color: white;
+    background-image: url(https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1472&q=80);
+    background-repeat: no-repeat;
+    color: rgb(255, 255, 255);
+    height: 2rem;
 }

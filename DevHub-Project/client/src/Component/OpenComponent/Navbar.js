@@ -1,44 +1,51 @@
 
-
 import { Link } from "react-router-dom";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import jwt_Decode from "jwt-decode"
 
 function Navbar() {
-  const [refresh, setRefresh] = useState(false);
+  const [username,setUsername] =useState('')
   const token = localStorage.token;
+  
 
-  const handleRefresh = () => {
-    setRefresh(true);
-    setTimeout(() => {
-      setRefresh(false);
-    }, 10);
-  };
+  useEffect(() => {
+    if(token) {
+      let userId = jwt_Decode(token).username
+      setUsername(userId)
+      
+    }
+    
+  }, [token]);
 
   return (
     <>
       {token ? (
-        <nav className="navbar" class="navbar navbar-dark bg-dark">
-          <ul class="nav nav-pills">
-            <Link to="/home" onClick={handleRefresh} className="main" class="navbar-brand">
+        <nav className="navbar" class="navbar navbar-dark  --bs-primary-border-subtle">
+          <ul class="nav nav-pills --bs-primary-border-subtle">
+            <Link to="/home"  className="main" class="navbar-brand">
               Hub
             </Link>
-            <Link to="/GetProjects" onClick={handleRefresh} class="navbar-brand">
+            <Link to="/GetProjects"  class="navbar-brand">
               Project
             </Link>
-            <Link to="/library" onClick={handleRefresh} class="navbar-brand">
+            <Link to="/library"  class="navbar-brand">
               Library
             </Link>
-          </ul>
+            
+          </ul> 
+          <h5> {username} </h5>
           <ul>
-            <Link to="/logout" onClick={handleRefresh} class="btn btn-outline-danger my-3 my-sm-0">
+            <Link to="/logout"  class="btn btn-outline-danger my-3 my-sm-0">
               Log out
             </Link>
           </ul>
         </nav>
       ) : (
-        <nav className="navbar" class="navbar navbar-dark bg-dark">
+        <nav className="navbar" class="navbar navbar-dark --bs-primary-border-subtle">
+          
           <ul class="nav nav-pills">
-            <Link to="/" onClick={handleRefresh} className="main" class="navbar-brand">
+            <Link to="/" className="main" class="navbar-brand">
               DevHub
             </Link>
           </ul>
@@ -49,6 +56,7 @@ function Navbar() {
 }
 
 export default Navbar;
+
 
 
 

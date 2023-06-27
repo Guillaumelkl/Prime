@@ -4,6 +4,10 @@
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 20px;
     text-align: center;
+    background-image: url(https://images.unsplash.com/photo-1478760329108-5c3ed9d495a0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
   }
   
   .category {
@@ -25,14 +29,14 @@
     margin-bottom: 5px;
     text-align: right;
     text-decoration: none;
-    color: black;
+    color: rgb(220, 220, 220);
     padding: 2rem;
     
   }
   
   .category > a {
     text-decoration: none;
-    color: #333;
+    color: #e1dddd;
     padding: 2rem;
   }
   
@@ -43,6 +47,8 @@
   .category > h2{
     margin-left: 0rem;
     text-align: center;
+    color: white;
+    
   }
   
   

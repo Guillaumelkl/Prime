@@ -93,7 +93,7 @@ function GetProjects() {
   }, []);
 
   return (
-    <div >
+    <div className='ProjectMainContainer' >
       
       <form >
       <ul className='prolinkList'>
@@ -113,6 +113,7 @@ function GetProjects() {
                 <h5 className='titles'>Title </h5>
                 {isEditMode ? (
                   <MDBInput label='New title?' 
+                  for="formWhite"
                   id='formTextExample1' 
                   type='text' 
                   aria-describedby='textExample1'
@@ -167,7 +168,7 @@ function GetProjects() {
                 )}
                 <br />
                 
-                <MDBBtn className="projectBtn" onClick={() => deleteProject(project._id)}>
+                <MDBBtn className="projectBtn" color='danger' onClick={() => deleteProject(project._id)}>
                   Delete
                 </MDBBtn>
                 {isEditMode ? (
@@ -205,6 +206,7 @@ function GetProjects() {
 }
 
 export default GetProjects;
+
 
 
 

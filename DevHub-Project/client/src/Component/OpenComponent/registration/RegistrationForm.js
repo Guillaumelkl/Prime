@@ -36,7 +36,8 @@ const RegistrationForm = () => {
   };
 
   return (
-    <MDBContainer fluid className='p-4 background-radial-gradient overflow-hidden'>
+    <div className='registerContainer' >
+    <MDBContainer  fluid className='p-4 background-radial-gradient overflow-hidden' >
          
       <MDBRow>
       
@@ -59,7 +60,7 @@ const RegistrationForm = () => {
 
           <MDBCard className='my-5 bg-glass'>
             <MDBCardBody className='p-5'>
-            <h4>Sign Up</h4>
+            <h4>Welcome to DevHub, your new way to store and track your projects.</h4>
             <br/>
               <form onSubmit={handleSubmit(onSubmit)}>
                 <MDBRow>
@@ -148,6 +149,7 @@ const RegistrationForm = () => {
       </MDBRow>
 
     </MDBContainer>
+    </div>
   );
 };
 

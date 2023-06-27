@@ -7,7 +7,7 @@ const Logout = (props) => {
   useEffect(()=>{
     navigate("/login");
     props.onLogout(false);
-  },[]) 
+  },[Logout]) 
   
 };
 

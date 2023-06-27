@@ -1,22 +1,17 @@
-body{
-    margin: 0px;
-    padding: 0px;
+
+.registerContainer{
     
+    background-image: url(https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1744&q=80);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height:100vh;
 }
 
 
-.registration{
-    margin: 5rem;
-    padding: 2rem;
-    max-width: fit-content;
-    max-height: fit-content;
-    color: white;
-    background-color: rgba(1, 65, 31, 0.5);
-    box-shadow: 0 4px 9px rgba(0, 0, 0, 0.4);
-    border-radius: 10px;
-    border: none;
 
-}
+
+
 
 
 .registration > input{
@@ -30,4 +25,5 @@ body{
 .registration > button{
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
 }
+
 

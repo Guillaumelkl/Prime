@@ -10,6 +10,7 @@ import Home from './Component/protectedComponent/Home';
 import Logout from './Component/protectedComponent/Logout';
 import AddProject from './Component/protectedComponent/Project/AddProject';
 import GetProjects from './Component/protectedComponent/Project/GetProjects';
+
 import Footer from './Component/OpenComponent/Footer';
 
 function App() {
