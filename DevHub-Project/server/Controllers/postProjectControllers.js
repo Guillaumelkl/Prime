@@ -21,7 +21,7 @@ const postProject = async (req, res) => {
     res.status(200).send({ msg: 'Project has been saved successfully.' });
   } catch (error) {
     res.status(500).send({ msg: 'Cannot post project', error });
-    console.log('error', error);
+    return ('error', error);
   }
 };
 
@@ -51,10 +51,10 @@ const deleteProject = async (req, res) => {
       let { id } = req.params;
       const toDelete = await projectPost.findByIdAndRemove(id);
       res.status(204).send({ msg: 'Project deleted', toDelete });
-      console.log(toDelete);
+      return (toDelete);
     } catch (error) {
       res.status(500).send({ msg: 'Unable to delete project', error });
-      console.log(error);
+      return (error);
     }
   }
 

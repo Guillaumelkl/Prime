@@ -14,8 +14,8 @@ const getProfile = async (req, res) => {
       username: user.userName
     });
   } catch (error) {
-    console.error(error);
     res.status(500).send({ error: 'Server error' });
+    return (error);
   }
 };
 
