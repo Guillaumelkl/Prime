@@ -72,28 +72,13 @@ function Question() {
       await axios.post(`http://localhost:8080/auth/comments/${questionId}`, newComment);
       setCommentInputs({ ...commentInputs, [questionId]: '' });
       setQuestion(updatedQuestion);
-      getUser(questionId);
+      
     } catch (error) {
       return (error);
     }
   };
 
-  const getUser = async (id) => {
-    try {
-      const response = await axios.get(`http://localhost:8080/auth/getUser/${id}`, {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`,
-        },
-      });
 
-      const user = response.data;
-      if (user && user.userName) {
-        setUser(user.userName);
-      }
-    } catch (error) {
-      return (error);
-    }
-  };
 
   const handleCommentChange = (e, questionId) => {
     setCommentInputs({ ...commentInputs, [questionId]: e.target.value });
@@ -199,7 +184,6 @@ function Question() {
                         <MDBBtn
                           className='me-2'
                           id='commentBtn'
-                          onChange={getUser}
                           onClick={() => {
                             addComment(q._id);
                           }}>

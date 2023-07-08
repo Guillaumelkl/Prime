@@ -2,7 +2,6 @@ const express = require("express");
 const router = express.Router();
 const verifyToken = require("../authorize")
 
-const getProfile = require("../Controllers/profile")
 
 const {postProject,
        getProjects,
@@ -16,7 +15,7 @@ const {
       comments,
       } = require("../Controllers/QuestionController")
 
-router.get("/getProfile/:id", getProfile);
+
 
 router.post("/postProject",verifyToken,  postProject);
 router.get("/getProjects", verifyToken, getProjects);
