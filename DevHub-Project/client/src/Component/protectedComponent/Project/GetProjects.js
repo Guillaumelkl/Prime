@@ -32,15 +32,15 @@ function GetProjects() {
 
       setProjects(result.data);
     } catch (error) {
-      console.log('Error: ', error);
+      return ('Error: ', error);
     }
   }
 
   async function deleteProject(id) {
     const confirmed = window.confirm('Are you sure you want to delete this project?');
     if (!confirmed) {
-      console.log('Project deletion');
-      return;
+      return('Project deletion');
+      
     }
 
     try {
@@ -52,7 +52,7 @@ function GetProjects() {
       alert('Project deleted');
       myProjects();
     } catch (error) {
-      console.log('Error: ', error);
+      return('Error: ', error);
     }
   }
 
@@ -76,7 +76,7 @@ function GetProjects() {
       myProjects();
       setEditModeIndex(null); 
     } catch (error) {
-      console.log('Error: ', error);
+      return ('Error: ', error);
     }
   }
 

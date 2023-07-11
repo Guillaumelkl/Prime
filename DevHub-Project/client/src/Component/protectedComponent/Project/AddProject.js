@@ -40,7 +40,7 @@ function AddProject() {
 
     } catch (error) {
       alert('Cannot add project');
-      console.error(error);
+      
     }
   };
 

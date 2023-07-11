@@ -16,30 +16,10 @@ const createQuestion = async (req, res) => {
 
     res.status(200).send({ msg: 'Project has been saved successfully.' });
   } catch (error) {
-    console.log(error);
     res.status(500).send({ error: 'Failed to create question', message: error.message });
+    return(error);
   }
 };
-
-
-const getUsername = async (req, res) => {
-  try {
-    const { id } = req.params;
-    const user = await User.findById({ _id: id });
-    if (!user) {
-      return res.status(404).send({ error: 'User not found' });
-    }
-
-    res.send({
-       username: user.userName
-       });
-  } catch (error) {
-    console.error(error);
-    res.status(500).send({ error: 'Server error' });
-  }
-};
-
-
 
 
 
@@ -74,7 +54,7 @@ const deleteQuestionById = async (req, res) => {
     res.send({ message: 'Question deleted successfully', toDelete });
   } catch (error) {
     res.status(500).send({ error: 'Failed to delete question' });
-    console.log(error)
+    return (error)
   }
 };
 
@@ -88,7 +68,6 @@ module.exports = {
   getAllQuestions,
   comments,
   deleteQuestionById,
-  getUsername
 };
 
 
