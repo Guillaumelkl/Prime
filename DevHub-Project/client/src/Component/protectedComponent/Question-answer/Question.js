@@ -13,7 +13,7 @@ import {
   MDBCollapse,
 } from 'mdb-react-ui-kit';
 import './Question.css';
-
+import jwt_Decode from "jwt-decode"
 
 function Question() {
   const [question, setQuestion] = useState([]);
@@ -23,8 +23,8 @@ function Question() {
   const [commentInputs, setCommentInputs] = useState({});
   const [collapseIds, setCollapseIds] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
-  const [user, setUser] = useState('');
-  const [isSearching, setIsSearching] = useState(false); 
+  const [username, setUsername] = useState('');
+  const [isSearching, setIsSearching] = useState(false);
 
   const getQuestion = async () => {
     try {
@@ -35,12 +35,12 @@ function Question() {
       });
       setQuestion(result.data.reverse());
       setCollapseIds(result.data.map(() => false));
-      return (result)
+      return result;
     } catch (error) {
-      return (error);
+      return error;
     }
   };
- 
+
   const askQuestion = async (e) => {
     e.preventDefault();
     try {
@@ -56,13 +56,13 @@ function Question() {
       getQuestion();
     } catch (error) {
       alert('Cannot add Question');
-      return (error);
+      return error;
     }
   };
 
   const addComment = async (questionId) => {
     try {
-      const newComment = { comment: commentInputs[questionId] || '' };
+      const newComment = { comment: commentInputs[questionId] || '', username: username };
       const updatedQuestion = question.map((q) => {
         if (q._id === questionId) {
           return { ...q, comments: [...q.comments, newComment] };
@@ -72,13 +72,10 @@ function Question() {
       await axios.post(`http://localhost:8080/auth/comments/${questionId}`, newComment);
       setCommentInputs({ ...commentInputs, [questionId]: '' });
       setQuestion(updatedQuestion);
-      
     } catch (error) {
-      return (error);
+      return error;
     }
   };
-
-
 
   const handleCommentChange = (e, questionId) => {
     setCommentInputs({ ...commentInputs, [questionId]: e.target.value });
@@ -102,15 +99,17 @@ function Question() {
   );
 
   useEffect(() => {
+    if (token) {
+      let userId = jwt_Decode(token).username;
+      setUsername(userId);
+    }
     getQuestion();
-  }, []);
-
-  
+  }, [token]);
 
   return (
     <>
       <div className='mainContainer'>
-        {!isSearching && ( 
+        {!isSearching && (
           <div className='QuestionBox'>
             <h6>Ask a public question</h6>
             <br />
@@ -159,7 +158,7 @@ function Question() {
                 <MDBCard key={q._id} className='questionCard'>
                   <MDBCardBody className='cardBody'>
                     <MDBCardTitle className='textComment'>{q.title}</MDBCardTitle>
-                    <br/>
+                    <br />
                     <MDBCardText className='textComment'>{q.text}</MDBCardText>
                     <br />
                     <MDBBtn
@@ -191,12 +190,18 @@ function Question() {
                         </MDBBtn>
                         <br />
                         <br />
+
                         {q.comments
                           .slice(0)
                           .reverse()
                           .map((comment) => (
-                            <MDBListGroup className='listGroup' style={{ minWidthL: '22rem' }}  key={comment._id}>
-                              <MDBListGroupItem  className='listItem'>{comment.comment}</MDBListGroupItem>
+                            <MDBListGroup className='listGroup' style={{ minWidth: '22rem' }} key={comment._id}>
+                              <MDBListGroupItem className='listItem'>
+                                <h5>{comment.username} :</h5>
+                                <b/>
+                                <b/>
+                                <p> {comment.comment}</p>
+                                </MDBListGroupItem>
                             </MDBListGroup>
                           ))}
                       </MDBCardBody>
@@ -213,6 +218,8 @@ function Question() {
 }
 
 export default Question;
+
+
 
 
 
