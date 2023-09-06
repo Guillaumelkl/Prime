@@ -45,7 +45,7 @@ function Navbar() {
           
           <ul class="nav nav-pills">
             <Link to="/" className="main" class="navbar-brand">
-              DevHub
+              <h2>DevHub</h2>
             </Link>
           </ul>
         </nav>

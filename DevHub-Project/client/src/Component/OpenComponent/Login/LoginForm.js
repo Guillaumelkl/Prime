@@ -35,13 +35,8 @@ function LoginForm(props) {
 
   return (
     <div className='loginContainer' >
-    <MDBContainer className='my-0'>
-    <h3 className='loginMsg'> DevHub, the start of your new journey as a developer</h3>
-      <MDBCard className='loginCard'>
-        <MDBRow className='g-0 d-flex align-items-center'>
-          <MDBCol md='2'>
-          </MDBCol>
-          <MDBCol md='8'>
+    <h3 className='loginMsg'> The start of your new journey as a developer</h3>
+      <div className='loginCard'>
           <h4 className='login'>Welcome to DevHub </h4>
             <MDBCardBody>
               <form onSubmit={handleSubmit(onSubmit)}>
@@ -67,10 +62,9 @@ function LoginForm(props) {
                 <MDBBtn className="mb-4 w-100" type="submit">Log in</MDBBtn>
               </form>
             </MDBCardBody>
-          </MDBCol>
-        </MDBRow>
-      </MDBCard>
-    </MDBContainer>
+          
+      </div>
+    
     </div>
   );
 }
