@@ -40,15 +40,27 @@ function LoginForm(props) {
           <h4 className='login'>Welcome to DevHub </h4>
             <MDBCardBody>
               <form onSubmit={handleSubmit(onSubmit)}>
-                <MDBInput wrapperClass='mb-4' label='Email address' id='form1' type='email' 
-                {...register("email", { required: "Email is required." })} />
+                <div className='form-outline form-white mb-4'>
+                <MDBInput 
+                wrapperClass='mb-4' 
+                label='Email address' 
+                id='form2' 
+                type='email' 
+                class="form-control" 
+                {...register("email", { required: "Email is required." })}
+                 />
                 {errors.email && <p className='errorMsg'>{errors.email.message}</p>}
                 {errors.email && errors.email.type === "pattern" && (
                   <p className='errorMsg'>Invalid email address format</p>
                 )}
-
-                <MDBInput wrapperClass='mb-4' label='Password' id='form2'type="password" 
-              class="form-control" 
+                </div>
+                <div className='form-outline form-white mb-4'>
+                <MDBInput 
+                wrapperClass='mb-4' 
+                label='Password' 
+                id='form2'
+                type="password" 
+                class="form-control" 
               
               name='password'
               {...register("password", {
@@ -58,7 +70,7 @@ function LoginForm(props) {
                   message: "Password should be at-least 6 characters.",
                 },
                  })}/>
-
+                 </div>
                 <MDBBtn className="mb-4 w-100" type="submit">Log in</MDBBtn>
               </form>
             </MDBCardBody>
@@ -70,3 +82,4 @@ function LoginForm(props) {
 }
 
 export default LoginForm;
+

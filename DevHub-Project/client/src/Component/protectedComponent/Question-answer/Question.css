@@ -5,10 +5,11 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-image: url(https://images.unsplash.com/photo-1478760329108-5c3ed9d495a0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80);
+    background-image: url(https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1472&q=80);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+    height:100vh;
     
 }
 
@@ -82,7 +83,7 @@
   
   .cardContainer {
     margin: 1.5rem;
-    margin-left: -1rem;
+    margin-left: 0rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -146,7 +147,7 @@
   
   .commentSection {
     margin: 0px;
-    padding: 2rem;
+    padding: 5rem;
     word-wrap: break-word;
     border: none;
     background-color: rgba(21, 21, 21, 0.3);
@@ -165,8 +166,8 @@
   }
   
   .cardBody {
-    overflow:scroll;
-    max-height: 25rem;
+    overflow:auto;
+    max-height: fit-content;
     max-width: 45rem;
     min-width: 45rem;
     background-color: rgb(40, 40, 40);
